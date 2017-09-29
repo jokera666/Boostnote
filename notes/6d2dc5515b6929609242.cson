@@ -1,0 +1,18 @@
+type: "MARKDOWN_NOTE"
+folder: "d477d9dc554c9f71d97c"
+title: "Cambiar GRUB de Linux"
+content: '''
+  # Cambiar GRUB de Linux
+  El GRUB de Linux es cuando hay dos o mas sistemas operativos instalados en el equipo, aparece un menu para seleccionar el sistema operativo con el cual arranque el equipo. Por defecto es la opcion 0 que es el sistema operativo Ubuntu en este caso. Para cambiar la opcion de Windows para que sea por defecto hay que modificar el grub:
+  
+  1. Abrir la Terminal de Ubuntu.
+  2. Acceder a la ruta: `cd /boot/grub/`
+  3. Abrir el fichero de configuración: `sudo gedit grub.cfg`
+  4. Cambiar la variable `default=0` _por la posicion del sistema operativo que queremos seleccionar en el menu de arranque GRUB contanto desde 0_
+  ---
+'''
+tags: []
+isStarred: false
+isTrashed: false
+createdAt: "2017-09-20T13:18:27.715Z"
+updatedAt: "2017-09-20T15:06:31.342Z"

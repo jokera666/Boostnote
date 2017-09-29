@@ -1,0 +1,38 @@
+type: "MARKDOWN_NOTE"
+folder: "d477d9dc554c9f71d97c"
+title: "Linux Commands Cheat"
+content: '''
+  # Linux Commands Cheat
+  
+  ## Debian package manager
+  ---
+  Listar todos los paquetes .dab instalados en el SO: `dpkg -l`
+  Instalar un paquete descargado de Debian .dab: `sudo dpkg -i \\ruta\\paquete.dab`
+  Desinstalar un programa ya existe: `sudo apt-get remove nombrePrograma` el `nombrePrograma` se puede obtener desde el comando `dpkg -l`
+  Desinstalar un programa con los ficheros de configuración: `sudo apt-get --purge remove nombrePrograma`
+  
+  ---
+  ## Sublime Text
+  ### Instalar SublimeText
+  `sudo add-apt-repository ppa:webupd8team/sublime-text-3`
+  `sudo apt-get update`
+  `sudo apt-get install sublime-text-installer`
+  Ejecutar SublimeText desde la Terminal: `subl`
+  ### Actualizar SublimeText
+  1. Descargar el fichero desde la pagina oficial de [Sublime](https://www.sublimetext.com/).
+  2. Descomprimir el fichero `tar vxjf sublime_text_3_build_3143_x64.tar.bz2`
+  3. Sobreescribir la vieja version accediendo a la carpeta de la descomprensión: `sudo cp -rf sublime_text_3/. /opt/sublime_text`
+  4. Borrar la carpeta de la descomprensión: `rm -rf sublime_text_3`
+  ---
+  
+  ## XAMPP
+  
+  Iniciar XAMPP `sudo /opt/lampp/lampp/ start`
+  Parar XAMPP `sudo /opt/lampp/lampp/ stop`
+  Dar permisos a los directos y ficheros que se encuentran dentro de la carpeta __htdocs__: `sudo chmod 755 -R /opt/lampp/htdocs` 
+'''
+tags: []
+isStarred: true
+isTrashed: false
+createdAt: "2017-09-19T13:04:39.024Z"
+updatedAt: "2017-09-20T15:05:50.642Z"

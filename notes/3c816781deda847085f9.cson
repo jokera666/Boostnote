@@ -1,0 +1,18 @@
+type: "MARKDOWN_NOTE"
+folder: "d477d9dc554c9f71d97c"
+title: "Currículum Vitae"
+content: '''
+  # Currículum Vitae
+  La idea de este proyecto es desarrollar una plantilla de un CV simple.
+  Ejemplo de la plnatilla: [link](https://nestoredrev.github.io/)
+  
+  ## Tecnologías utilizadas
+  - AngularJS
+  - Materialize
+  
+'''
+tags: []
+isStarred: false
+isTrashed: false
+createdAt: "2017-09-29T14:21:03.396Z"
+updatedAt: "2017-09-29T14:48:48.919Z"
