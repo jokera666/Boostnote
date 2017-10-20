@@ -1,0 +1,17 @@
+type: "MARKDOWN_NOTE"
+folder: "c933a741eb80cf546f4d"
+title: "Comandos Git"
+content: '''
+  # Comandos Git
+  
+  ## Configuracion de cuenta Git
+  ---
+  
+  Establecer nombre del usuario: `git config --global user.name "Nestor"`
+  Establecer e-mail del usuario: `git config --global user.mail "correo@gmail.com"`
+'''
+tags: []
+isStarred: false
+isTrashed: false
+createdAt: "2017-10-20T08:33:20.745Z"
+updatedAt: "2017-10-20T09:49:17.931Z"

@@ -4,6 +4,11 @@
       "key": "d477d9dc554c9f71d97c",
       "color": "#1278BD",
       "name": "Default"
+    },
+    {
+      "key": "c933a741eb80cf546f4d",
+      "color": "#30D5C8",
+      "name": "Git"
     }
   ],
   "version": "1.0"
