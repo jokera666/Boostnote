@@ -9,6 +9,16 @@
       "key": "c933a741eb80cf546f4d",
       "color": "#30D5C8",
       "name": "Git"
+    },
+    {
+      "key": "2263c40b7d724b64f768",
+      "color": "#FF8E00",
+      "name": "Linux"
+    },
+    {
+      "key": "42cd38fc19c3261a8ee1",
+      "color": "#E8D252",
+      "name": "jQuery"
     }
   ],
   "version": "1.0"

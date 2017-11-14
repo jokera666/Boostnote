@@ -1,5 +1,5 @@
 type: "MARKDOWN_NOTE"
-folder: "d477d9dc554c9f71d97c"
+folder: "2263c40b7d724b64f768"
 title: "Linux Commands Cheat"
 content: '''
   # Linux Commands Cheat
@@ -32,7 +32,7 @@ content: '''
   Dar permisos a los directos y ficheros que se encuentran dentro de la carpeta __htdocs__: `sudo chmod 755 -R /opt/lampp/htdocs` 
 '''
 tags: []
-isStarred: true
+isStarred: false
 isTrashed: false
-createdAt: "2017-09-19T13:04:39.024Z"
-updatedAt: "2017-09-20T15:05:50.642Z"
+createdAt: "2017-11-14T16:31:10.660Z"
+updatedAt: "2017-11-14T16:31:36.112Z"

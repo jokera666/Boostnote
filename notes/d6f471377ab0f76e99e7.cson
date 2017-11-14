@@ -1,0 +1,115 @@
+type: "SNIPPET_NOTE"
+folder: "42cd38fc19c3261a8ee1"
+title: "Subir foto directamente desde input=\"file\""
+description: "Subir foto directamente desde input=\"file\""
+snippets: [
+  {
+    name: "Ejemplo.html"
+    mode: "HTML"
+    content: '''
+      <div class="user-link" href="#" id="contenedorFoto">
+        <img class="img-thumbnail" id="fotoPerfil" alt="User Picture"  src="<?php echo base_url().$foto;?>">
+      </div>
+                                      
+      <form id="formPhoto" action="#" method="POST" enctype="multipart/form-data">
+          <input type="file" id="fotoUpload" name="fichero" style="display: none;">
+      </form>
+    '''
+  }
+  {
+    name: "Ejemplo.js"
+    mode: "JavaScript"
+    content: '''
+          //<!-- Script SUBMIT AUTOMATICO despues de seleccionar la foto en input type="file" -->
+       
+          
+          $('#fotoUpload').change(function() {
+      
+              var file  = this.files[0];
+              var img = new Image();
+      
+              img.onload = function()
+              {
+                var sizes = {
+                    width:this.width,
+                    height: this.height
+                };
+                URL.revokeObjectURL(this.src);
+              }
+      
+            var objectURL = URL.createObjectURL(file);
+      
+            var tamFoto = Math.round(file.size/1024);
+      
+            // Foto mayor de 2MB
+            if(tamFoto > 2048)
+            {
+              alert('Error: La foto es mayor de 2MB.');
+            }
+            else
+            {
+              $('#formPhoto').submit();
+            }
+          });
+      
+          $('#formPhoto').on('submit',(function(e) {
+              e.preventDefault();
+              var formData = new FormData(this);
+      
+              $.ajax({
+                  type:'POST',
+                   url: "<?php echo base_url("index.php/Actividades/subirFoto")?>",
+                  data:formData,
+                  enctype: 'multipart/form-data',
+                  cache:false,         // no cachear data
+                  processData: false,  // no procesar data
+                  contentType: false,  // no establecer contentType
+                  success:function(data){
+                      obtenerFoto();
+                  },
+                  error: function(data){
+      
+                  }
+              });
+          }));
+          //<!-- [ FIN ] SUBMIT AUTOMATICO despues de seleccionar la foto en input type="file" -->
+      
+      
+          //<!-- AÑADIR/MODIFICAR IMAGEN DE PERFIL -->
+            $('#contenedorFoto').click(function(){
+              var defaultNoFoto = '<?php echo base_url().'photos_profile/noFoto.jpg';?>';
+              var getUrlFoto = $('#fotoPerfil').attr('src');
+              //Abrir la ventana de seleccion de fichero.
+              $('#fotoUpload').click();
+              if(getUrlFoto == '')
+              {
+                $('#fotoPerfil').attr('src',defaultNoFoto);
+              }
+            });
+          //<!-- [ FIN ] AÑADIR/MODIFICAR IMAGEN DE PERFIL -->
+            
+            //Aqui se obtiene el nombre de la foto subida/editada anteriormente por el usuario
+            function obtenerFoto()
+            {
+              $.ajax({
+                url: "<?php echo base_url("index.php/Actividades/getFoto")?>",
+                type: "POST",
+                success: function(respuesta){
+                  var rutaDir = '<?php echo base_url().'photos_profile/';?>';
+                  var rutaFoto = rutaDir+respuesta;
+                  $('#fotoPerfil').attr('src',rutaFoto);
+                },
+                error: function(err)
+                {
+      
+                }
+              });
+            }
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false
+createdAt: "2017-11-14T17:42:49.277Z"
+updatedAt: "2017-11-14T17:51:58.354Z"

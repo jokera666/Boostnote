@@ -1,0 +1,30 @@
+type: "SNIPPET_NOTE"
+folder: "42cd38fc19c3261a8ee1"
+title: "Inicializar Select con valor"
+description: "Inicializar Select con valor"
+snippets: [
+  {
+    name: "Ejemplo.js"
+    mode: "JavaScript"
+    content: '''
+      /*El ejemplo consiste en inicializar el select con una opcion que 
+      resibimos por ajax o una variable de php, comprobando si la opcion
+      coincide con los ya existentes*/
+      
+      var estadoActual = "<?php echo $row['ESTADO']; ?>";
+      $('#idSelect > option').filter(function(){
+         
+          /*Tambien se puede inicializar segun el id o el texto que tiene la opcion
+          del Select*/
+          //return this.id
+          //return this.text
+          return this.value === estadoActual;
+      }).prop('selected', true);
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false
+createdAt: "2017-11-14T17:33:33.623Z"
+updatedAt: "2017-11-14T17:38:06.928Z"

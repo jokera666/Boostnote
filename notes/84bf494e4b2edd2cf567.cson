@@ -1,17 +1,38 @@
 type: "MARKDOWN_NOTE"
 folder: "c933a741eb80cf546f4d"
-title: "Comandos Git"
+title: "&x2623; -=[ Comandos Git ]=- &#x2623;"
 content: '''
-  # Comandos Git
+  # &#x2623; -=[ Comandos Git ]=- &#x2623;
   
-  ## Configuracion de cuenta Git
+  ## Configuracion de cuenta Git 
   ---
   
   Establecer nombre del usuario: `git config --global user.name "Nestor"`
   Establecer e-mail del usuario: `git config --global user.mail "correo@gmail.com"`
+  Ver la configuracion de Git: `git config --list`
+  
+  ---
+  ## Comandos basicos
+  
+  Clonar repositorio asignandole en un directorio concreto: `git clone https://github.com/jokera666/FavoritosOnline.git Favoritos`
+  Iniciar un directorio como proyecto de Git: `git init`
+  Para ignorar fichero que no queremos que sean afectados por git, como ficheros de configuracion, añadimos su ruta en el fichero oculto de git `.gitignore`
+  Ver el estado del repositorio (Los ficheros que se han modificado): `git status`
+  Seleccionar todos ficheros modificados para añadir en el commit: `git add .`
+  Seleccionar un fichero en concreto para añadir en el commit: `git add "nombre de fichero"`
+  Para eliminar un fichero que no queremos que aparezca en el commit: `git checkout "nombre de fichero"`
+  Para comentar los ficheros y añadir una descripcion a subir en el repositorio: `git commit -m "Titulo del commit" -m "Descripcion del commit"`
+  Para subir el commit al repositorio: `git push`
+  Para bajar los cambios (actualizar el repositorio) que se han echo en el repositorio: `git pull`
+  Ver el ultimo commit del repositorio: `git show --summary`
+  Crear una rama y moverte en ella: `git checkout -b "Nombre de la rama"`
+  Moverte en otra rama: `git checkout "Nombre de la rama"`
+  Antes de realizar una fusion de tu rama con master hay que hacer un pull del master. Para eso hay que cambiarte a la rama de master hacer el pull y fusionar tu rama con la de master: `git merge "nombre de la rama"` y luego hay que subir los cambios: `git push`
+  
+  
 '''
 tags: []
 isStarred: false
 isTrashed: false
 createdAt: "2017-10-20T08:33:20.745Z"
-updatedAt: "2017-10-20T09:49:17.931Z"
+updatedAt: "2017-11-14T12:51:59.861Z"

@@ -1,0 +1,45 @@
+type: "SNIPPET_NOTE"
+folder: "42cd38fc19c3261a8ee1"
+title: "Event sobre una etiqueta cargada por Ajax"
+description: "Event sobre una etiqueta cargada por Ajax"
+snippets: [
+  {
+    name: "Ejemplo.html"
+    mode: "HTML"
+    content: '''
+      <!DOCTYPE html>
+      <html>
+      <head>
+      
+      </head>
+      <body>
+      <h2>Let jQuery AJAX Change This Text</h2>
+      <div id="div1"></div>
+      <button>Get External Content</button>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script>
+      $(document).ready(function(){
+        
+          $("button").click(function(){
+              $.ajax({url: "demo_test.txt", success: function(result){
+                  $("#div1").append('<div id="div2">'+result+'</div>').hide().fadeIn();
+              }});
+          });
+          
+          //Lanzar el evento click el elemento cargado por Ajax.
+          $(document).on("click", '#div2', function(event) { 
+            alert("new link clicked!");
+      	  });
+        
+      });
+      </script>
+      </body>
+      </html>
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false
+createdAt: "2017-11-14T17:04:58.457Z"
+updatedAt: "2017-11-14T17:13:18.715Z"

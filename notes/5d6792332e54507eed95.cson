@@ -1,0 +1,21 @@
+type: "SNIPPET_NOTE"
+folder: "42cd38fc19c3261a8ee1"
+title: "Cargar tabla Ajax"
+description: "Cargar tabla Ajax"
+snippets: [
+  {
+    name: "Ejemplo.js"
+    mode: "JavaScript"
+    content: '''
+          var table = $("#table tbody");
+          $.each(data, function(idx, elem){
+              table.append("<tr><td>"+elem.username+"</td><td>"+elem.name+"</td>   <td>"+elem.lastname+"</td></tr>");
+          });
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false
+createdAt: "2017-11-14T17:11:48.365Z"
+updatedAt: "2017-11-14T17:12:43.687Z"
