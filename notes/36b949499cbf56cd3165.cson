@@ -1,0 +1,23 @@
+type: "SNIPPET_NOTE"
+folder: "42cd38fc19c3261a8ee1"
+title: "Comprar dos array y obtener los elementos unicos"
+description: "Comprar dos array y obtener los elementos unicos"
+snippets: [
+  {
+    name: "Ejemplo.js"
+    mode: "JavaScript"
+    content: '''
+      function arrayElementosUnicos(array1,array2)
+      {
+        var diferencia = $(array1).not(array2).get();
+       
+        return diferencia;
+      }
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false
+createdAt: "2017-11-27T09:35:27.952Z"
+updatedAt: "2017-11-27T09:36:22.833Z"

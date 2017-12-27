@@ -1,0 +1,34 @@
+type: "SNIPPET_NOTE"
+folder: "42cd38fc19c3261a8ee1"
+title: "Fecha/Hora Hoy JavaScript"
+description: "Fecha/Hora Hoy JavaScript"
+snippets: [
+  {
+    name: "Ejemplo.js"
+    mode: "JavaScript"
+    content: '''
+      function addCero(i)
+      {
+          if (i < 10) {
+              i = "0" + i;
+          }
+          return i;
+      }
+      
+      var auxFecha = new Date();
+      var dia      = auxFecha.getDate();
+      var mes      = auxFecha.getMonth()+1; // +1 Porque cuenta a partir de 0 (0 = Enero)
+      var anyo     = auxFecha.getFullYear();
+      var horas    = addCero(auxFecha.getHours());
+      var minutos  = addCero(auxFecha.getMinutes());
+      var secundos = addCero(auxFecha.getSeconds());
+      
+      var fecha    = dia+'/'+mes+'/'+anyo+' '+horas+':'+minutos+':'+secundos;
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false
+createdAt: "2017-11-15T17:58:34.973Z"
+updatedAt: "2017-11-15T18:00:03.555Z"

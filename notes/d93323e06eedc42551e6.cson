@@ -1,0 +1,25 @@
+type: "SNIPPET_NOTE"
+folder: "42cd38fc19c3261a8ee1"
+title: "Comparar dos array y obtener los elementos repetidos"
+description: "Comparar dos array y obtener los elementos repetidos"
+snippets: [
+  {
+    name: "Ejemplo.js"
+    mode: "JavaScript"
+    content: '''
+      function arrayElementosRepetidos(array1,array2)
+      {
+        var repetidos = array1.filter(function(val) {
+            return array2.indexOf(val) != -1;
+        });
+       
+        return repetidos;
+      }
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false
+createdAt: "2017-11-27T09:33:28.171Z"
+updatedAt: "2017-11-27T09:35:03.312Z"

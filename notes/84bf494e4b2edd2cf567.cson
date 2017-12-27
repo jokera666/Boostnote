@@ -18,16 +18,25 @@ content: '''
   Iniciar un directorio como proyecto de Git: `git init`
   Para ignorar fichero que no queremos que sean afectados por git, como ficheros de configuracion, añadimos su ruta en el fichero oculto de git `.gitignore`
   Ver el estado del repositorio (Los ficheros que se han modificado): `git status`
+  Ver los cambios realizados: `git diff`
   Seleccionar todos ficheros modificados para añadir en el commit: `git add .`
-  Seleccionar un fichero en concreto para añadir en el commit: `git add "nombre de fichero"`
-  Para eliminar un fichero que no queremos que aparezca en el commit: `git checkout "nombre de fichero"`
-  Para comentar los ficheros y añadir una descripcion a subir en el repositorio: `git commit -m "Titulo del commit" -m "Descripcion del commit"`
+  Seleccionar los ficheros con un menu interactivo: `git add -i`
+  Seleccionar un fichero en concreto para añadir en el commit: `git add <nombre de fichero>`
+  Para eliminar un fichero que no queremos que aparezca en el commit: `git checkout <nombre de fichero>`
+  Para comentar los ficheros y añadir una descripcion a subir en el repositorio: `git commit -m <titulo del commit> -m <descripcion del commit>`
   Para subir el commit al repositorio: `git push`
   Para bajar los cambios (actualizar el repositorio) que se han echo en el repositorio: `git pull`
   Ver el ultimo commit del repositorio: `git show --summary`
-  Crear una rama y moverte en ella: `git checkout -b "Nombre de la rama"`
-  Moverte en otra rama: `git checkout "Nombre de la rama"`
-  Antes de realizar una fusion de tu rama con master hay que hacer un pull del master. Para eso hay que cambiarte a la rama de master hacer el pull y fusionar tu rama con la de master: `git merge "nombre de la rama"` y luego hay que subir los cambios: `git push`
+  Ver commit a partir del id: `git show <commit id>`
+  Ver todos los commits en una rama concreta: `git log <nombre de la rama> --not master` o `git log --walk-reflogs mybranch`
+  Crear una rama y moverte en ella: `git checkout -b <nombre de la rama>`
+  Eliminar una rama en local(estando en ella): `git branch -d <nombre de la rama>`
+  Moverte en otra rama: `git checkout <nombre de la rama>`
+  Antes de realizar una fusion de tu rama con master hay que hacer un pull del master. Para eso hay que cambiarte a la rama de master hacer el pull y fusionar tu rama con la de master: `git merge <nombre de la rama>` y luego hay que subir los cambios: `git push`
+  Obtener una lista de tus ramas: `git branch`
+  Renombrar una rama(estando en ella): `git branch -m <nuevo nombre>` 
+  Ver las ramas que se han mergeado/fusionado en master: `git branch --merged master`
+  Ver las ramas que NO se han mergeado/fusionado en master: `git branch --no-merged master`
   
   
 '''
@@ -35,4 +44,4 @@ tags: []
 isStarred: false
 isTrashed: false
 createdAt: "2017-10-20T08:33:20.745Z"
-updatedAt: "2017-11-14T12:51:59.861Z"
+updatedAt: "2017-11-30T12:07:06.946Z"
