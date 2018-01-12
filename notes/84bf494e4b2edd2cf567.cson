@@ -4,6 +4,11 @@ title: "&x2623; -=[ Comandos Git ]=- &#x2623;"
 content: '''
   # &#x2623; -=[ Comandos Git ]=- &#x2623;
   
+  ## Esquema basico de la logica de Git
+  
+  ![Image](https://hackadaycom.files.wordpress.com/2017/04/flowgit.png)
+  
+  
   ## Configuracion de cuenta Git 
   ---
   
@@ -20,6 +25,7 @@ content: '''
   Ver el estado del repositorio (Los ficheros que se han modificado): `git status`
   Ver los cambios realizados: `git diff`
   Seleccionar todos ficheros modificados para añadir en el commit: `git add .`
+  Deshacer un fichero que fue añadido en el Storage con el comando add: `git reset HEAD <ruta del fichero>`
   Seleccionar los ficheros con un menu interactivo: `git add -i`
   Seleccionar un fichero en concreto para añadir en el commit: `git add <nombre de fichero>`
   Para eliminar un fichero que no queremos que aparezca en el commit: `git checkout <nombre de fichero>`
@@ -37,6 +43,7 @@ content: '''
   Renombrar una rama(estando en ella): `git branch -m <nuevo nombre>` 
   Ver las ramas que se han mergeado/fusionado en master: `git branch --merged master`
   Ver las ramas que NO se han mergeado/fusionado en master: `git branch --no-merged master`
+  Ver un commit a que rama pertenece: `git branch --contains <hash del commit>`
   
   
 '''
@@ -44,4 +51,4 @@ tags: []
 isStarred: false
 isTrashed: false
 createdAt: "2017-10-20T08:33:20.745Z"
-updatedAt: "2017-11-30T12:07:06.946Z"
+updatedAt: "2018-01-10T15:09:26.705Z"

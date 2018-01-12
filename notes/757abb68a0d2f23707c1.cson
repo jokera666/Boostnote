@@ -1,0 +1,58 @@
+createdAt: "2018-01-12T13:39:33.743Z"
+updatedAt: "2018-01-12T13:41:02.755Z"
+type: "SNIPPET_NOTE"
+folder: "42cd38fc19c3261a8ee1"
+title: "Cargar dinamicamente un select a partir de otro"
+description: "Cargar dinamicamente un select a partir de otro"
+snippets: [
+  {
+    name: "ejemplo.html"
+    mode: "HTML"
+    content: '''
+      	<div id="contenedorFiltro">
+      		<label for="setFiltro">Filtrar por:</label>
+      		<select name="setFiltro" id="setFiltro">
+      			<option value="">Seleccionar...</option>
+      			<option value="contrata">Contrata</option>
+      			<option value="instalador">Instalador</option>
+      		</select>
+      	</div>
+    '''
+  }
+  {
+    name: "ejemplo.js"
+    mode: "JavaScript"
+    content: '''
+      $('#setFiltro').change(function(){
+      	getFiltro = $(this).val();
+      
+      	if(getFiltro == 'contrata')
+      	{
+      		$('#contenedorFiltro  select#getInstalador').remove();
+      		$('#contenedorFiltro  label#labGetInstalador').remove();
+      		$.ajax({
+      			url: 'ajax/getContratas.php',
+      			method: 'POST',
+      			type: 'json',
+      			success: function(respuesta){
+      				var selectContrata = '<label for="getContrata" id="labGetContrata">Contrata: </label><select    name="getContrata" id="getContrata">';
+      				var optionsContrata = '';
+      				$.each($.parseJSON(respuesta), function(idx, elem){
+      					console.log(elem.ID_CONTRATA);
+      					selectContrata += '<option value="'+elem.ID_CONTRATA+'">'+elem.NOMBRE+'</option>';
+      				});
+      				selectContrata += '</select>';
+      				$('#contenedorFiltro').append(selectContrata);		
+      			},
+      			error: function(err){
+      
+      			}
+      		});
+      	}
+      });
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false
