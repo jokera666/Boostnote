@@ -15,6 +15,7 @@ content: '''
   Establecer nombre del usuario: `git config --global user.name "Nestor"`
   Establecer e-mail del usuario: `git config --global user.mail "correo@gmail.com"`
   Ver la configuracion de Git: `git config --list`
+  Dar un alias a un comando de git: (Pj: git status): `git config --global alias.st status`
   
   ---
   ## Comandos basicos
@@ -32,18 +33,36 @@ content: '''
   Para comentar los ficheros y añadir una descripcion a subir en el repositorio: `git commit -m <titulo del commit> -m <descripcion del commit>`
   Para subir el commit al repositorio: `git push`
   Para bajar los cambios (actualizar el repositorio) que se han echo en el repositorio: `git pull`
-  Ver el ultimo commit del repositorio: `git show --summary`
-  Ver commit a partir del id: `git show <commit id>`
-  Ver todos los commits en una rama concreta: `git log <nombre de la rama> --not master` o `git log --walk-reflogs mybranch`
   Crear una rama y moverte en ella: `git checkout -b <nombre de la rama>`
   Eliminar una rama en local(estando en ella): `git branch -d <nombre de la rama>`
   Moverte en otra rama: `git checkout <nombre de la rama>`
   Antes de realizar una fusion de tu rama con master hay que hacer un pull del master. Para eso hay que cambiarte a la rama de master hacer el pull y fusionar tu rama con la de master: `git merge <nombre de la rama>` y luego hay que subir los cambios: `git push`
-  Obtener una lista de tus ramas: `git branch`
   Renombrar una rama(estando en ella): `git branch -m <nuevo nombre>` 
+  
+  
+  ---
+  ## Comandos informativos
+  La ayuda de git: `git --help`
+  Obtener informacion de un comando dado:(Pj: el comando init): `git --help init` 
+  Historia confirmada del repositorio: `git log`
+  Obtener los ultimos tres commits: `git log -n 3`
+  Obtener el hash y el nombre el commit en una sola linea: `git log --oneline`
+  Historia confirmada del repositorio mas los ficheros tocados en cada commit: `git log --stat`
+  Historia de los commits realizados por un autor en concreto: `git log --author="Nestor"`
+  Añade en la Historia el nombre de las rammas de los commits: `git log --decorate`
+  
+  Ver el ultimo commit del repositorio: `git show --summary`
+  Ver commit a partir del id(hash corto): `git show <commit id>`
+  
+  ---
+  ## Comandos informativos para Ramas
+  Ver todos los commits en una rama concreta: `git log <nombre de la rama> --not master` o `git log --walk-reflogs mybranch`
+  Obtener una lista de tus ramas locales: `git branch`
   Ver las ramas que se han mergeado/fusionado en master: `git branch --merged master`
   Ver las ramas que NO se han mergeado/fusionado en master: `git branch --no-merged master`
   Ver un commit a que rama pertenece: `git branch --contains <hash del commit>`
+  
+  
   
   
 '''
@@ -51,4 +70,4 @@ tags: []
 isStarred: false
 isTrashed: false
 createdAt: "2017-10-20T08:33:20.745Z"
-updatedAt: "2018-01-10T15:09:26.705Z"
+updatedAt: "2018-01-14T12:58:30.898Z"
