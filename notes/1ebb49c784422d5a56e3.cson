@@ -1,0 +1,130 @@
+createdAt: "2018-01-16T10:41:05.385Z"
+updatedAt: "2018-01-16T10:43:19.062Z"
+type: "SNIPPET_NOTE"
+folder: "efa9ce1d49f8f7a14ef1"
+title: "Generar EXCEL"
+description: "Generar EXCEL"
+snippets: [
+  {
+    name: "ejemplo.js"
+    mode: "JavaScript"
+    content: '''
+      <script>
+        	$(document).on("click", '#btnExportExcel', function(event) { 
+      		
+      		var idInstalador = $('#getInstalador').val();
+      		var idContrata = $('#getContrata').val();
+      
+      		//Con la misma peticion mediante el flag en la url obtenemos tambien el excel
+      		if(idInstalador != '' && typeof idInstalador !== 'undefined')
+      		{
+      			url = "ajax/getDatosDotacionInicial.php?flag='1'&idInstalador="+idInstalador+"";
+      			window.open(url);
+      		}
+      		if(idContrata != '' && typeof idContrata !== 'undefined')
+      		{
+      			url = "ajax/getDatosDotacionInicial.php?flag='1'&idContrata="+idContrata+"";
+      			window.open(url);
+      		}
+      	});  
+      </script>
+    '''
+  }
+  {
+    name: "ejemplo.php"
+    mode: "PHP"
+    content: '''
+      <?php
+      
+      	$sql = "SELECT DE.SAP_MATERIAL, 
+      				   M.NOMBRE_MATERIAL, 
+      				   SUM(DE.CANTIDAD_MATERIAL) AS CANTIDAD_TOTAL, 
+      				   CE.FECHA_ENVIO 
+      		  FROM BODEGA AS B
+      		  INNER JOIN TECNICO AS T ON T.ID_TECNICO = B.ID_TECNICO 
+      		  INNER JOIN CABECERA_ENTRADA AS CE ON CE.ID_BODEGA = B.ID_BODEGA
+      		  INNER JOIN DETALLE_ENTRADA AS DE ON CE.ID_BODEGA = DE.ID_BODEGA
+      		  INNER JOIN MATERIAL AS M ON M.SAP_MATERIAL = DE.SAP_MATERIAL";
+      
+      	if((isset($_GET['idInstalador']) && $_GET['idInstalador'] != ''))
+      	{
+      		$id = $_GET['idInstalador'];
+      		$sql .= " WHERE CE.id_bodega = 'TECx".$id."' AND CE.CONCEPTO_ENTRADA = 'car_ini' AND CE.TIPO_GUIA = 'AT'"; 
+      	}
+      	if(isset($_GET['idContrata']) && $_GET['idContrata'] != '')
+      	{
+      		$id = $_GET['idContrata'];
+      		$sql .= " WHERE T.ID_CONTRATA = '".$id."' AND CE.CONCEPTO_ENTRADA = 'car_ini' AND CE.TIPO_GUIA = 'AT'"; 	
+      	}
+      	
+      	$sql .= " GROUP BY DE.SAP_MATERIAL, M.NOMBRE_MATERIAL,  DE.CANTIDAD_MATERIAL, CE.FECHA_ENVIO;";
+      	
+      	$rs = $objBd->executa_select_sqlsrv($sql);
+      
+      	$arrayDatos = array();
+      
+      	while ($row = sqlsrv_fetch_array($rs)){
+      		
+      		normalizar_charset_recursivo($row, "UTF-8");
+      		
+      		$arrayDatos[] = array (
+      			'SAP' 				=> $row['SAP_MATERIAL'],
+      			'NOMBRE' 			=> $row['NOMBRE_MATERIAL'],
+      			'CANTIDAD_TOTAL' 	=> $row['CANTIDAD_TOTAL'],
+      			'FECHA_ENVIO' 		=> $row['FECHA_ENVIO']->format('Y-m-d H:i:s')
+      		);
+      	}
+      	if(!empty($arrayDatos)){
+      
+      		// El flag es para destingir desde donde se realiza la peticion
+      		// es decir si existe el flag se realiza la peticion para obtener el excel
+      		// y si no es solo para pintar el grid
+      		if(isset($_GET['flag']))
+      		{
+      			
+      			$filename = "informe_dotacion_ini_" . date('Ymd') . ".xls";
+      		 	header("Content-Type: application/vnd.ms-excel");
+      		 	header("Content-Disposition: attachment; filename=\\"$filename\\"");
+      			set_time_limit(30);
+      
+      			$heading = false;
+      			if(!empty($arrayDatos))
+      			{
+      				foreach($arrayDatos as $row)
+      				{
+      					if(!$heading)
+      					{
+      					  // display field/column names as a first row
+      					  echo implode("\\t", array_keys($row)) . "\\r\\n";
+      					  $heading = true;
+      					}
+      					array_walk($row, __NAMESPACE__ . '\\cleanData');
+      					echo implode("\\t", array_values($row)) . "\\r\\n";
+      				}
+      			}
+      			exit;
+      
+      		}
+      		else
+      		{
+      			echo json_encode($arrayDatos);
+      		}
+      	}
+      	else
+      	{
+      		echo "KO";
+      	}
+      
+      	function cleanData(&$str)
+      	{
+      		$str = preg_replace("/\\t/", "\\\\t", $str);
+      		$str = preg_replace("/\\r?\\n/", "\\\\n", $str);
+      		if(strstr($str, '"')) $str = '"' . str_replace('"', '""', $str) . '"';
+      	}
+      ?>
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false

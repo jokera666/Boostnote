@@ -1,0 +1,64 @@
+createdAt: "2018-01-30T11:47:24.018Z"
+updatedAt: "2018-01-30T11:49:34.918Z"
+type: "SNIPPET_NOTE"
+folder: "efa9ce1d49f8f7a14ef1"
+title: "Try Catch"
+description: "Try Catch"
+snippets: [
+  {
+    name: "ejemplo.php"
+    mode: "PHP"
+    content: '''
+      <?php 
+      try
+      {
+      	$response = array();
+      	$sql = "SELECT NOMBRE FROM FOTOS_PETICIONES WHERE ID = '".$idFoto."';";
+      	$rs = $objBd->executa_select_sqlsrv($sql);
+      	if(!$rs)
+      	{
+          //si entra en la excepcion se va al catch y se rompe la ejecucion
+      		throw new Exception("Error al borrar la foto", 1);
+      	}
+      	else
+      	{
+      		$response = array(
+      			'status' => "OK"
+      		);
+      	}
+      	$row = sqlsrv_fetch_array($rs);
+      	unlink(LW_LOCAL_PATH . "/actividades2/CerrarPeticiones/galeria/files/".$row['NOMBRE']);
+      
+      	$sql = "DELETE FROM FOTOS_PETICIONES WHERE ID = '".$idFoto."';";
+      	$rs = $objBd->executa_select_sqlsrv($sql);
+      	if(!$rs)
+      	{
+          //si entra en la excepcion se va al catch y se rompe la ejecucion
+      		throw new Exception("Error al borrar la foto ", 1);
+      		
+      	}
+      	else
+      	{
+      		$response = array(
+      			'status' => "OK"
+      		);
+      	}
+      
+      
+      }catch(Exception $e)
+      {
+        //Recoge el mensaje de error en de la exepcion que ha saltado
+      	$response = array(
+      		'status' => "KO",
+      		'msg' => $e->message
+      	);
+      }
+      
+      echo json_encode($response);
+      ?>
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false

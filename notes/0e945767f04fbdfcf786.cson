@@ -1,0 +1,75 @@
+createdAt: "2018-01-24T08:07:11.418Z"
+updatedAt: "2018-01-24T08:07:57.521Z"
+type: "SNIPPET_NOTE"
+folder: "efa9ce1d49f8f7a14ef1"
+title: "Generar EXCEL con tabla html"
+description: '''
+  Generar EXCEL con tabla html
+  
+'''
+snippets: [
+  {
+    name: "ejemplo.php"
+    mode: "PHP"
+    content: '''
+      	header("Content-Type:   application/vnd.ms-excel; charset=utf-8");
+      	header("Content-Disposition: attachment; filename=informe_auditoria_".date("d_m_Y_H_i_s").".xls");  //File name extension was wrong
+      	header("Expires: 0");
+      	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+      	header("Cache-Control: private",false);
+          echo "<table border = '1' width='100%'>";
+          echo "<tr>";
+          echo "<td>Provincia</td>";
+          echo "<td>EECC</td>";
+          echo "<td>Familia</td>";
+          echo "<td>Material</td>";
+          echo "<td>Descripción</td>";
+          echo "<td>Entradas Nuevos</td>";
+          echo "<td>Entradas Garantia</td>";
+          echo "<td>Salidas Nuevos</td>";
+          echo "<td>Salidas Garantia</td>";
+          echo "<td>Consumo Scorpjazz</td>";
+          echo "<td>Consumo WM Orange Validado</td>";
+          echo "<td>Consumo WM Orange No Validado</td>";
+          echo "<td>Consumo WM JZ Validado</td>";
+          echo "<td>Consumo WM JZ No Validado</td>";
+          echo "<td>Existencias</td>";
+          echo "<td>Consumo 5 días</td>";
+          echo "<td>Consumo 7 días</td>";
+          echo "<td>Consumo 15 días</td>";
+          echo "<td>Entregado Dotación</td>";
+          echo "<td>Pte Reposición</td>";
+          echo "<td>Pte Devolución</td>";
+          echo "</tr>";
+          foreach($arrResultadoArranged as $k=>$v){
+              echo "<tr>";
+              echo "<td>".$v['PROVINCIA']."</td>";
+      		echo "<td>".$v['COD_CONTRATA']."</td>";
+              echo "<td>".$v['FAMILIA_MATERIAL']."</td>";
+              echo "<td>".$v['SAP_MATERIAL']."</td>";
+              echo "<td>".$v['MATERIAL_DESCRIPCION']."</td>";
+              echo "<td>".$v['CANTIDAD_ENTRADA_NUEVO']."</td>";
+              echo "<td>".$v['CANTIDAD_ENTRADA_GARANTIA']."</td>";
+              echo "<td>".$v['CANTIDAD_SALIDA_NUEVO']."</td>";
+              echo "<td>".$v['CANTIDAD_SALIDA_GARANTIA']."</td>";
+              echo "<td>".$v['CANTIDAD_CONSUMO_SCORPJAZZ']."</td>";
+              echo "<td>".$v['CONSUMO_ORANGE_VALIDADO']."</td>";
+              echo "<td>".$v['CONSUMO_ORANGE_NO_VALIDADO']."</td>";
+              echo "<td>".$v['CONSUMO_JAZZTEL_VALIDADO']."</td>";
+              echo "<td>".$v['CONSUMO_JAZZTEL_NO_VALIDADO']."</td>";
+              echo "<td>".$v['EXISTENCIAS']."</td>";
+              echo "<td>".$v['CANTIDAD_CONSUMO5DIAS']."</td>";
+              echo "<td>".$v['CANTIDAD_CONSUMO7DIAS']."</td>";
+              echo "<td>".$v['CANTIDAD_CONSUMO15DIAS']."</td>";
+              echo "<td>".$v['CANTIDAD_ENTRADA_DOTACION']."</td>";
+              echo "<td>".$v['CANTIDAD_PTE_REPONER']."</td>";
+              echo "<td>".$v['CANTIDAD_PTE_DEVOLVER']."</td>";
+              echo "</tr>";
+          }
+          echo "</table>";
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false

@@ -24,6 +24,8 @@ content: '''
   Iniciar un directorio como proyecto de Git: `git init`
   Para ignorar fichero que no queremos que sean afectados por git, como ficheros de configuracion, añadimos su ruta en el fichero oculto de git `.gitignore`
   Ver el estado del repositorio (Los ficheros que se han modificado): `git status`
+  Ver el estado del repositorio en caso de que se llena el baffer del terminal: `git status | cat`
+  Exportar la salida de un comando en txt (pj: git log): `git log > logRepo.txt`
   Ver los cambios realizados: `git diff`
   Seleccionar todos ficheros modificados para añadir en el commit: `git add .`
   Deshacer un fichero que fue añadido en el Storage con el comando add: `git reset HEAD <ruta del fichero>`
@@ -46,13 +48,18 @@ content: '''
   Obtener informacion de un comando dado:(Pj: el comando init): `git --help init` 
   Historia confirmada del repositorio: `git log`
   Obtener los ultimos tres commits: `git log -n 3`
+  Obtener Acciones(pull, push, merge) realizados en el repositorio: `git reflog --date=iso`
   Obtener el hash y el nombre el commit en una sola linea: `git log --oneline`
   Historia confirmada del repositorio mas los ficheros tocados en cada commit: `git log --stat`
   Historia de los commits realizados por un autor en concreto: `git log --author="Nestor"`
   Añade en la Historia el nombre de las rammas de los commits: `git log --decorate`
   
   Ver el ultimo commit del repositorio: `git show --summary`
-  Ver commit a partir del id(hash corto): `git show <commit id>`
+  Ver commit a partir del id(hash corto) con el diff de los cambios de los ficheros modificados: `git show <commit id>`
+  Ver commit partir del hash junto con los ficheros modificados ` git show --name-only <commit id>
+  ` 
+  Ver el culpable de una de un rango de lineas: `git blame -L 50,55 <ruta fichero>`
+  Ver el culpable a partir de una linea en concreto mas 50 lineas mas: `git blame -L 10,+50 <ruta fichero>`
   
   ---
   ## Comandos informativos para Ramas
@@ -61,13 +68,9 @@ content: '''
   Ver las ramas que se han mergeado/fusionado en master: `git branch --merged master`
   Ver las ramas que NO se han mergeado/fusionado en master: `git branch --no-merged master`
   Ver un commit a que rama pertenece: `git branch --contains <hash del commit>`
-  
-  
-  
-  
 '''
 tags: []
 isStarred: false
 isTrashed: false
 createdAt: "2017-10-20T08:33:20.745Z"
-updatedAt: "2018-01-14T12:58:30.898Z"
+updatedAt: "2018-02-02T13:17:11.798Z"
