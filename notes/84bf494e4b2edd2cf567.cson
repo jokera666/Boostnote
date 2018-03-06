@@ -14,6 +14,8 @@ content: '''
   
   Establecer nombre del usuario: `git config --global user.name "Nestor"`
   Establecer e-mail del usuario: `git config --global user.mail "correo@gmail.com"`
+  Añadir Sublime (para Windows) como editor de texto para git: `git config --global core.editor "'c:/program files/sublime text 3/subl.exe' -w"`
+  Añadir Sublime (para Linux) como editor de texto para git: `git config --global core.editor "subl -n -w"`
   Ver la configuracion de Git: `git config --list`
   Dar un alias a un comando de git: (Pj: git status): `git config --global alias.st status`
   
@@ -39,7 +41,9 @@ content: '''
   Eliminar una rama en local(estando en ella): `git branch -d <nombre de la rama>`
   Moverte en otra rama: `git checkout <nombre de la rama>`
   Antes de realizar una fusion de tu rama con master hay que hacer un pull del master. Para eso hay que cambiarte a la rama de master hacer el pull y fusionar tu rama con la de master: `git merge <nombre de la rama>` y luego hay que subir los cambios: `git push`
-  Renombrar una rama(estando en ella): `git branch -m <nuevo nombre>` 
+  Para abortar un merge cuando aparece asi _I-5672|MERGING_: `git merge --abort`
+  Renombrar una rama(estando en ella): `git branch -m <nuevo nombre>`
+  Ver la URL donde esta alojado el repositorio: `git remote -v`
   
   
   ---
@@ -68,9 +72,18 @@ content: '''
   Ver las ramas que se han mergeado/fusionado en master: `git branch --merged master`
   Ver las ramas que NO se han mergeado/fusionado en master: `git branch --no-merged master`
   Ver un commit a que rama pertenece: `git branch --contains <hash del commit>`
+  
+  ---
+  ## Guardado rapido Stash
+  El *Stash* de git es un guardado rapido de cambios que estan a medios en tu repositorio local. *Stash*  su utilides es para cuando necesitas moverte a otra rama y no quieres comitear los cambios realizadas que estan a medias, simplemente los almacenas en sucio y cuando vuelves a la rama los recuperas.
+  
+  Almacenar cambios a sucio: `git stash`
+  Recuperar cambios del stash: `git stash apply`
+  Borrar el stash una vez terminado el trabajo en la rama: `git stash drop`
+  
 '''
 tags: []
 isStarred: false
 isTrashed: false
 createdAt: "2017-10-20T08:33:20.745Z"
-updatedAt: "2018-02-02T13:17:11.798Z"
+updatedAt: "2018-03-06T17:08:39.313Z"
