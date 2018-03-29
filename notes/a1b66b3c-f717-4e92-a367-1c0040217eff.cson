@@ -1,0 +1,190 @@
+createdAt: "2018-03-29T16:46:12.244Z"
+updatedAt: "2018-03-29T16:48:28.447Z"
+type: "SNIPPET_NOTE"
+folder: "efa9ce1d49f8f7a14ef1"
+title: "MailerPHP"
+description: "MailerPHP"
+snippets: [
+  {
+    name: "ejemplo.php"
+    mode: "PHP"
+    content: '''
+      <?php 
+      
+          function enviarMail($from, $from_host, $from_port, $from_smtp_auth, $from_user, $from_pass, $to, $subject, $body, $files = array())
+          {
+              //Create a new PHPMailer instance
+              $mail = new \\PHPMailer;
+      
+              //Tell PHPMailer to use SMTP
+              $mail->isSMTP();
+      
+              //Enable SMTP debugging
+              // 0 = off (for production use)
+              // 1 = client messages
+              // 2 = client and server messages
+              $mail->SMTPDebug = 0;
+      
+              //Ask for HTML-friendly debug output
+              $mail->Debugoutput = 'html';
+      
+              //Set the hostname of the mail server
+              $mail->Host = $from_host;
+      
+              // use
+              // $mail->Host = gethostbyname('smtp.gmail.com');
+              // if your network does not support SMTP over IPv6
+              //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+              $mail->Port = $from_port;
+      
+              //Set the encryption system to use - ssl (deprecated) or tls
+              $mail->SMTPSecure = $from_smtp_auth;
+      
+              //Whether to use SMTP authentication
+              $mail->SMTPAuth = true;
+      
+              //Username to use for SMTP authentication - use full email address for gmail        
+              $mail->Username = $from_user;
+      
+              //Password to use for SMTP authentication        
+              $mail->Password = $from_pass;
+      
+              //Set who the message is to be sent from
+              $mail->setFrom($from);
+      
+              //Set an alternative reply-to address
+              //$mail->addReplyTo(SJ_ENVIO_MAIL_FROM_MAIL, SJ_ENVIO_MAIL_FROM);
+              $mail->addReplyTo($from);
+      
+              //Set the subject line
+              $mail->Subject = $subject;
+      
+              //Read an HTML message body from an external file, convert referenced images to embedded,
+              //convert HTML into a basic plain-text alternative body
+              //$mail->msgHTML(file_get_contents('contents.html'), dirname(__FILE__));
+              $mail->Body = !empty($body)
+                      ? $body
+                      : "";
+      
+              //Replace the plain text body with one created manually
+              $mail->AltBody = !empty($body)
+                      ? $body
+                      : "";
+      
+              //Attach an image file
+              if (!empty($files))
+              {
+                  foreach ($files as &$item_file)
+                  {
+                      $mail->addAttachment($item_file["file"], $item_file["name"]);
+                      unset($file);
+                  }
+              }
+      
+              //Set who the message is to be sent to
+              if (is_array($to))
+              {
+                  foreach ($to as &$item_to)
+                  {
+                      $mail->addAddress($item_to);
+                      unset($item_to);
+                  }
+              }
+              else
+              {
+                  $mail->addAddress($to);
+              }
+      
+              //send the message, check for errors
+              if (!$mail->send())
+              {
+                  //Desactivamos comprobacion SSL para solventar problemas en ciertos DNS y volvemos a probar
+                  $mail->SMTPOptions = array(
+                      'ssl' => array(
+                          'verify_peer' => false,
+                          'verify_peer_name' => false,
+                          'allow_self_signed' => true
+                      )
+                  );
+      
+                  if (!$mail->send())
+                  {
+                      throw new \\Exception(sprintf("No se ha podido enviar correo a los destinatarios Mailer Error: %s", $mail->ErrorInfo));
+                  }
+              }
+          }
+      
+       ?>
+    '''
+  }
+  {
+    name: "ejemplo2.php"
+    mode: "PHP"
+    content: '''
+      <?php 
+      
+      	
+      	use PHPMailer\\PHPMailer\\PHPMailer;
+      	use PHPMailer\\PHPMailer\\Exception;
+      
+      	require_once 'PHPMailer/src/PHPMailer.php';
+      	require_once 'PHPMailer/src/Exception.php';
+      	require_once 'PHPMailer/src/SMTP.php';
+      
+      	$mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+      	try
+      	{
+      	    //Server settings
+      
+      		// Configuracion necesaria de enviar el correo desde localhost
+      		// y en php ini descomentar extension=php_openssl.dll
+      		$mail->SMTPOptions = array(
+      		    'ssl' => array(
+      		        'verify_peer' => false,
+      		        'verify_peer_name' => false,
+      		        'allow_self_signed' => true
+      		    )
+      		);
+      	    
+      	    $mail->SMTPDebug = 2;                   // Enable verbose debug output
+      	    $mail->isSMTP();                        // Set mailer to use SMTP
+      	    $mail->Host = 'mail.scorpora.eu';  			// Specify main and backup SMTP servers
+      	    $mail->SMTPAuth = true;                 // Enable SMTP authentication
+      	    $mail->Username = 'notificaciones@scorpora.eu'; // SMTP username
+      	    $mail->Password = '7?w70Hfd';             	// SMTP password
+      	    $mail->SMTPSecure = 'tls';              // Enable TLS encryption, `ssl` also accepted
+      	    $mail->Port = 25;                      // TCP port to connect to
+      
+      	    //Recipients
+      	    $mail->setFrom('soporte@scorpora.eu', 'Support');
+      	    $mail->addAddress('r.manus@scorpora.eu', 'Raul');     // Add a recipient
+      	    $mail->addAddress('i.nortes@scorpora.eu');               // Name is optional
+      	    //$mail->addReplyTo('info@example.com', 'Information');
+      	    //$mail->addCC('cc@example.com');
+      	    //$mail->addBCC('bcc@example.com');
+      
+      	    //Attachments
+      	    //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+      	    //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+      
+      	    //Content
+      	    $mail->isHTML(true);                                  // Set email format to HTML
+      	    $mail->Subject = 'Avances ITETE';
+      	    $mail->Body    = file_get_contents(dirname(__FILE__) . '/bodyMail.html');
+      	    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+      
+      	    $mail->send();
+      	    echo 'Message has been sent';
+      	} catch (Exception $e)
+      	{
+          	echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+      	}
+      
+      
+       ?>
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false

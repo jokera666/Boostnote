@@ -1,5 +1,5 @@
 createdAt: "2018-01-30T11:47:24.018Z"
-updatedAt: "2018-02-07T07:53:49.784Z"
+updatedAt: "2018-03-29T16:15:47.559Z"
 type: "SNIPPET_NOTE"
 folder: "efa9ce1d49f8f7a14ef1"
 title: "Try Catch"
@@ -50,7 +50,7 @@ snippets: [
         //Recoge el mensaje de error en de la exepcion que ha saltado
       	$response = array(
       		'status' => "KO",
-      		'msg' => $e->message
+      		'msg' => $e->getMessage()
       	);
       }
       
