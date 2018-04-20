@@ -1,0 +1,17 @@
+createdAt: "2018-04-19T07:17:57.820Z"
+updatedAt: "2018-04-19T07:50:46.065Z"
+type: "MARKDOWN_NOTE"
+folder: "c3e6296908a675bef1b0"
+title: "Instalacion de MongoDB para Windows"
+content: '''
+  ## Instalacion de MongoDB para Windows
+  1. Descargar [MongoDB](https://www.mongodb.com/download-center?jmp=nav#community) Community Server e Instalar
+  2. Asignar la variable de entorno para poder arrancar el servidor desde cmd: _C:\\Program Files\\MongoDB\\Server\\3.6\\bin_
+  3. Crear el dbpath que solicita mongoDB por defecto: C:\\data\\db
+  4. Verificar si todo ha ido bien lanzar el comando en cmd: `mongo --version`
+  5. Iniciar la BBDD de Mongo en cmd: `mongod`
+  6. Acceder al shell de MongoDB desde otro cmd nuevo: `mongo` donde podriamos realizar CRUD sobre BBDD y las diferentes tablas.
+'''
+tags: []
+isStarred: false
+isTrashed: false
