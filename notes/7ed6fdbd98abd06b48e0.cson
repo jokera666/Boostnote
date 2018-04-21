@@ -30,9 +30,18 @@ content: '''
   Iniciar XAMPP `sudo /opt/lampp/lampp/ start`
   Parar XAMPP `sudo /opt/lampp/lampp/ stop`
   Dar permisos a los directos y ficheros que se encuentran dentro de la carpeta __htdocs__: `sudo chmod 755 -R /opt/lampp/htdocs` 
+  
+  ---
+  
+  ## Postman
+  ### Instalar Postman
+  `wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz`
+  `sudo tar -xzf postman.tar.gz -C /opt`
+  `rm postman.tar.gz`
+  `sudo ln -s /opt/Postman/Postman /usr/bin/postman`
 '''
 tags: []
 isStarred: false
 isTrashed: false
 createdAt: "2017-11-14T16:31:10.660Z"
-updatedAt: "2017-11-14T16:31:36.112Z"
+updatedAt: "2018-04-21T09:58:06.161Z"

@@ -1,5 +1,5 @@
 createdAt: "2018-04-19T07:17:57.820Z"
-updatedAt: "2018-04-19T07:50:46.065Z"
+updatedAt: "2018-04-21T09:47:19.452Z"
 type: "MARKDOWN_NOTE"
 folder: "c3e6296908a675bef1b0"
 title: "Instalacion de MongoDB para Windows"
@@ -11,6 +11,13 @@ content: '''
   4. Verificar si todo ha ido bien lanzar el comando en cmd: `mongo --version`
   5. Iniciar la BBDD de Mongo en cmd: `mongod`
   6. Acceder al shell de MongoDB desde otro cmd nuevo: `mongo` donde podriamos realizar CRUD sobre BBDD y las diferentes tablas.
+  ---
+  ## Instalacion de MongoDB para Linux v16.04
+  Ejecutar los siguientes comandos en la terminal:
+  1. `sudo apt-get install mongodb`
+  2. `sudo apt-get update`
+  3. Para poner en marcha MongoDB:
+   `sudo service mongodb start` o  `mongod --dbpath data/db/` creando previamente el directorio de --dbpath para el comando mongod `sudo mkdir -p data/db`
 '''
 tags: []
 isStarred: false

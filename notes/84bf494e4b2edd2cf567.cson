@@ -12,12 +12,17 @@ content: '''
   ## Configuracion de cuenta Git 
   ---
   
+  ### Configuracion global
   Establecer nombre del usuario: `git config --global user.name "Nestor"`
   Establecer e-mail del usuario: `git config --global user.mail "correo@gmail.com"`
   Añadir Sublime (para Windows) como editor de texto para git: `git config --global core.editor "'c:/program files/sublime text 3/subl.exe' -w"`
   Añadir Sublime (para Linux) como editor de texto para git: `git config --global core.editor "subl -n -w"`
   Ver la configuracion de Git: `git config --list`
   Dar un alias a un comando de git: (Pj: git status): `git config --global alias.st status`
+  ### Configuracion remota
+  Asignacion del repositorio remoto: `git remote add origin https://github.com/nestoredrev/API-RESTfull-nodejs`
+  Editar el repositorio remoto: `git remote set-url https://github.com/nestoredrev/API-RESTfull-nodejs`
+  Ver el destino origin del repositorio remoto: `git remote -v`
   
   ---
   ## Comandos basicos
@@ -80,10 +85,9 @@ content: '''
   Almacenar cambios a sucio: `git stash`
   Recuperar cambios del stash: `git stash apply`
   Borrar el stash una vez terminado el trabajo en la rama: `git stash drop`
-  
 '''
 tags: []
 isStarred: false
 isTrashed: false
 createdAt: "2017-10-20T08:33:20.745Z"
-updatedAt: "2018-03-06T17:08:39.313Z"
+updatedAt: "2018-04-21T12:04:29.494Z"
