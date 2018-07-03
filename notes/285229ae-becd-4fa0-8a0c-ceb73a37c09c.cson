@@ -1,0 +1,69 @@
+createdAt: "2018-06-19T10:23:19.676Z"
+updatedAt: "2018-06-19T10:24:39.739Z"
+type: "SNIPPET_NOTE"
+folder: "efa9ce1d49f8f7a14ef1"
+title: "Obtener los dias entre un rango de fechas"
+description: "Obtener los dias entre un rango de fechas"
+snippets: [
+  {
+    name: "ejemplo.php"
+    mode: "PHP"
+    content: '''
+      <?php 
+      
+      	$fechaInicio = new DateTime('2018-06-18 08:00');
+      	$fechaFin 	 = new DateTime('2018-07-18 23:59');
+      
+      	echo "<pre>";
+      		echo "Fecha inicio: ".$fechaInicio->format('Y-m-d H:i');
+      		echo "<br/>";
+      		echo "Fecha fin: ".$fechaFin->format('Y-m-d H:i');
+      		echo "<br/>";
+      
+      		echo "Dias de Lunes a Viernes <br/>";
+      		fromLunesToViernes($fechaInicio, $fechaFin);
+      
+      		echo "Dias de los fines de semana <br/>";
+      		finDeSemana($fechaInicio, $fechaFin);	
+      	echo "</pre>";
+      
+      	function fromLunesToViernes($fechaInicio, $fechaFin)
+      	{
+      		//Intervalo de un dia
+      		$interval = new DateInterval('P1D');
+      		//dias de la semana 1 = Lunes , 5 = viernes
+      		$mydays = array('1', '2', '3', '4', '5');
+      		$daterange = new DatePeriod($fechaInicio, $interval ,$fechaFin);
+      		foreach($daterange as $date)
+      		{
+          		if(in_array($date->format('N'), $mydays))
+          		{
+          			echo $date->format("Y-m-d H:i") . "<br>";
+          		}
+      		}
+      	}
+      
+      	function finDeSemana($fechaInicio, $fechaFin)
+      	{
+      		//Intervalo de un dia
+      		$interval = new DateInterval('P1D');
+      		//dias de la semana 6 = Sabado , 7 = Domingo
+      		$mydays = array('6', '7');
+      		$daterange = new DatePeriod($fechaInicio, $interval ,$fechaFin);
+      
+      		foreach($daterange as $date)
+      		{
+          		if(in_array($date->format('N'), $mydays))
+          		{
+          			echo $date->format("Y-m-d H:i") . "<br>";
+          		}
+      		}
+      	}
+      
+       ?>
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false

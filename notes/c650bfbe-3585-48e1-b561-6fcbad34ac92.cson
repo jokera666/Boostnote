@@ -1,0 +1,22 @@
+createdAt: "2018-06-27T09:12:23.792Z"
+updatedAt: "2018-06-27T09:12:57.511Z"
+type: "SNIPPET_NOTE"
+folder: "42cd38fc19c3261a8ee1"
+title: "Obtener los elemnos repetidos de un Array"
+description: "Obtener los elemnos repetidos de un Array"
+snippets: [
+  {
+    name: "ejemplo.js"
+    mode: "JavaScript"
+    content: '''
+      var names = ["Mike","Matt","Nancy","Adam","Jenny","Nancy","Carl"];
+      var uniqueNames = [];
+      $.each(names, function(i, el){
+          if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+      });
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false

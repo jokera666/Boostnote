@@ -1,0 +1,62 @@
+createdAt: "2018-06-26T15:32:47.242Z"
+updatedAt: "2018-06-26T15:34:33.390Z"
+type: "SNIPPET_NOTE"
+folder: "42cd38fc19c3261a8ee1"
+title: "Obtener los valores a partir de un AJAX y devolverselos a otra funcion. Todo este funcionamineto lo esta realizando el Callback."
+description: "Obtener los valores a partir de un AJAX y devolverselos a otra funcion. Todo este funcionamineto lo esta realizando el Callback."
+snippets: [
+  {
+    name: "Ejemplo.js"
+    mode: "JavaScript"
+    content: '''
+      function initComponenteOrange()
+      {
+      	getComponentesOrange(function(componentes){
+      
+      		var opciones = '<option value="">Seleccionar</option>';
+      
+      		$.each(componentes,function(index, item){
+      			opciones += '<option value="'+item.nombreComponente+'">'+item.nombreComponente+'</option>';
+      		});
+      
+      		$('select#swOrangeNombre').append(opciones);
+      
+      	});	
+      }
+      
+      function getComponentesOrange(callback)
+      {
+      	var url = '<?php echo BASE_URL."/CotejosCI/mantenedores/index.php/Actuaciones/getModelosOrange"; ?>';
+      	$.ajax({
+      		method: 'GET',
+      		url: url,
+      		dataType : "json",
+      		beforeSend: function(){
+      			$('select#swOrangeModelo').append('<option value="">Cargando...</option>');
+      		},
+      		success: function(response){
+      			$('select#swOrangeModelo').find('option').remove();
+      			var componentes = response.Body.consultarModelosComponentesResponse.componentesOrange.componente;
+      			if(componentes.length < 1)
+      			{
+      				alert('No hay componentes disponibles de Orange');
+      			}
+      			else
+      			{
+      				if(callback)
+      				{
+      					callback(componentes);
+      				}
+      			}
+      		},
+      		error: function(err){
+      			console.log(err);
+      		}
+      	});
+      }
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false

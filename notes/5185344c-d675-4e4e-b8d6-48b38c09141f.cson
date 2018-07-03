@@ -1,0 +1,60 @@
+createdAt: "2018-07-03T07:41:38.645Z"
+updatedAt: "2018-07-03T08:52:29.595Z"
+type: "MARKDOWN_NOTE"
+folder: "a0e1aeb419d074b1ac51"
+title: "Optimizacion de base de datos MySQL"
+content: '''
+  # Optimizacion de base de datos MySQL
+  Las tablas de la base de datos se pueden fragmentar, esta fragmentacion ocurre cuando en una tabla hay muchos INSERT y DELETE, es decir cuando crece mucho el volumen de datos de la tabla es muy variable en el tiempo.
+  
+  Para ver las tablas fragmentadas en mySQL:
+  ```SQL
+  SELECT table_schema, table_name,data_free,data_length,(data_free/data_length)*100 frag_percent, ROUND((DATA_LENGTH + INDEX_LENGTH) / 1024 / 1024) AS 'Size (MB)', engine 
+  FROM information_schema.tables 
+  WHERE table_schema NOT IN ('information_schema', 'mysql') AND data_free > 0;
+  ```
+  
+  Para desfragmentar de esta forma optimizar la tabla fragmentada:
+  ```SQL
+  OPTIMIZE TABLE <nombre de la tabla>;
+  ```
+  Este proceso realiza un bloqueo (lock) de la tabla y puede demorar mucho tiempo si tenemos mucha fragmentación y datos. Una vez bloqueada no se podran realizar actuaciones(INSERT,DELETE...) sobre dicha tabla. **Esta sentencia es recomentable ejecutarla cuando la base de datos no esta en uso.**
+  
+  # Optimizacion de base de datos SQL SERVER
+  Para ver las tablas fragmentadas en SQL SERVER:
+  ```SQL
+  SELECT dbschemas.[name] as 'Schema', 
+  dbtables.[name] as 'Table', 
+  dbindexes.[name] as 'Index',
+  indexstats.alloc_unit_type_desc,
+  indexstats.avg_fragmentation_in_percent,
+  indexstats.page_count
+  FROM sys.dm_db_index_physical_stats (DB_ID(), NULL, NULL, NULL, NULL) AS indexstats
+  INNER JOIN sys.tables dbtables on dbtables.[object_id] = indexstats.[object_id]
+  INNER JOIN sys.schemas dbschemas on dbtables.[schema_id] = dbschemas.[schema_id]
+  INNER JOIN sys.indexes AS dbindexes ON dbindexes.[object_id] = indexstats.[object_id]
+  AND indexstats.index_id = dbindexes.index_id
+  WHERE indexstats.database_id = DB_ID()
+  ORDER BY indexstats.avg_fragmentation_in_percent desc
+  ```
+  
+  Para desfragmentar las tablas:
+  ```SQL
+  EXECUTE dbo.IndexOptimize @Databases = 'USER_DATABASES',
+  @FragmentationLow = NULL,
+  @FragmentationMedium = 'INDEX_REORGANIZE,INDEX_REBUILD_ONLINE,INDEX_REBUILD_OFFLINE',
+  @FragmentationHigh = 'INDEX_REBUILD_ONLINE,INDEX_REBUILD_OFFLINE',
+  @FragmentationLevel1 = 5,
+  @FragmentationLevel2 = 30,
+  @SortInTempdb = 'Y',
+  @MaxDOP = 0
+  ```
+  
+  
+  
+  
+  
+'''
+tags: []
+isStarred: false
+isTrashed: false
