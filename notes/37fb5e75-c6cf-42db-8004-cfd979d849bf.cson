@@ -1,0 +1,16 @@
+createdAt: "2018-07-26T17:08:21.730Z"
+updatedAt: "2018-07-26T17:15:47.235Z"
+type: "MARKDOWN_NOTE"
+folder: "2263c40b7d724b64f768"
+title: "Fix parpadeo arranque Ubuntu"
+content: '''
+  # Fix parpadeo arranque Ubuntu
+  Al arrancar el PC en el menu de Grub donde se selecciona el sistema operativo, seleccionamos Ubuntu y pulsamos la letra `e`. Localizamos la linea donde pone `... ro quit splash $vt_handoff` y editamos esa linea poniendo `... ro nomodeset $vt_handoff` y pulsamos Ctrl+X.
+  
+  De esta manera accederiamos de nuevo en nuestro sistema operativo. Pero para que se queden los cambios al reiniciar el sistema hay que cambiar esa linia tambien en el grub.cfg en todas la linea donde el `quit splash`.
+  
+  Para actualizar nuestro sistema debido al fallo este lanzamos el comando: `sudo apt-get update && sudo apt-get upgrade && sudo apt-get autoclean && sudo apt-get autoremove`
+'''
+tags: []
+isStarred: false
+isTrashed: false
