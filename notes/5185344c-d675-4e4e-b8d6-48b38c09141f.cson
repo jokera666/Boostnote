@@ -1,5 +1,5 @@
 createdAt: "2018-07-03T07:41:38.645Z"
-updatedAt: "2018-07-03T08:52:29.595Z"
+updatedAt: "2018-07-12T15:44:04.996Z"
 type: "MARKDOWN_NOTE"
 folder: "a0e1aeb419d074b1ac51"
 title: "Optimizacion de base de datos MySQL"
@@ -40,6 +40,7 @@ content: '''
   
   Para desfragmentar las tablas:
   ```SQL
+  use master;
   EXECUTE dbo.IndexOptimize @Databases = 'USER_DATABASES',
   @FragmentationLow = NULL,
   @FragmentationMedium = 'INDEX_REORGANIZE,INDEX_REBUILD_ONLINE,INDEX_REBUILD_OFFLINE',
