@@ -1,0 +1,116 @@
+createdAt: "2018-08-11T13:03:11.577Z"
+updatedAt: "2018-08-11T13:04:59.766Z"
+type: "SNIPPET_NOTE"
+folder: "42cd38fc19c3261a8ee1"
+title: "Subir archivo con progress bar con porcentaje de carga"
+description: "Subir archivo con progress bar con porcentaje de carga"
+snippets: [
+  {
+    name: "index.html"
+    mode: "HTML"
+    content: '''
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+      	<meta charset="UTF-8">
+      	<title>Formulario</title>
+      	<link rel="stylesheet" href="boostrap/css/bootstrap.min.css">
+      </head>
+      <body>
+      	<h1>Mi formulario</h1>
+      
+      
+      	<form  id="uploadForm" action="uploadFile.php" method="POST" enctype="multipart/form-data" width="500px">
+      		<div class="form-group">
+      			<label for="formGroupExampleInput">Nombre</label>
+      			<input type="text" class="form-control" id="formGroupExampleInput" name="nombre" placeholder="Nombre">
+      		</div>
+      		<div class="form-group">
+      			<label for="formGroupExampleInput2">Apellidos</label>
+      			<input type="text" class="form-control" id="formGroupExampleInput2" name="apellidos" placeholder="Apellidos">
+      		</div>
+      		<div class="form-group">
+      			<label for="miFichero">Subir fichero</label>
+      			<input type="file" class="form-control-file" name="miFichero" id="miFichero">
+      		</div>
+      		<div class="form-group">
+      			<input type="submit" id="btnUpload" class="btn btn-success btn-lg" value="Enviar">
+      		</div>
+      
+      		<div class="progress">
+      			<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+      		</div>
+      	
+      		<div id="targetLayer"></div>
+      	</form>
+      
+      	<div id="loader-icon" style="display: none;">
+      		<img src="loading.gif" alt="loader">
+      	</div>
+      
+      	<script src="jquery/jquery_3_3_1_min.js"></script>
+      	<script src="boostrap/js/bootstrap.min.js"></script>
+      	<script src="jquery/jquery_form_min.js"></script>
+      	<script src="js/miScript.js"></script>
+      </body>
+      </html>
+    '''
+  }
+  {
+    name: "miScript.js"
+    mode: "JavaScript"
+    content: '''
+      $(document).ready(function(){
+      	$('#uploadForm').submit(function(e){
+      		 e.preventDefault();
+      		 $('#loader-icon').show();
+      
+      		 $(this).ajaxSubmit({
+      		 	target: '#targetLayer',
+      		 	beforeSubmit: function(){
+      		 		$('.progress-bar').width('0%');
+      		 	},
+      		 	uploadProgress: function(event, position, total, percentComplete){
+      		 		$('.progress-bar').width(percentComplete+'%');
+      		 		$('.progress-bar').html('<div id="progress-status">'+percentComplete+' %</div>');
+      		 	},
+      		 	success: function(respuesta){
+      		 		$('#loader-icon').hide();
+      		 	},
+      		 	resetForm: true
+      		 });
+      		 return false;
+      	});
+      });
+      
+    '''
+  }
+  {
+    name: "backEnd.php"
+    mode: "PHP"
+    content: '''
+      <?php 
+      	error_reporting(E_ALL);
+      	/*ini_set('upload_max_filesize', '700M');
+      	ini_set('post_max_size', '700M');*/
+      	
+      	if (!empty($_FILES))
+      	{
+      		if (is_uploaded_file($_FILES['miFichero']['tmp_name']))
+      		{
+      			$srcPath = $_FILES['miFichero']['tmp_name'];
+      			$trgPath = "imagenes/".$_FILES['miFichero']['name'];
+      
+      			if(move_uploaded_file($srcPath, $trgPath))
+      			{
+      				echo "<img src='".$trgPath."' alt='imagen' width=300 height=250>";
+      			}
+      		}
+      	}
+       ?>
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false
