@@ -1,0 +1,39 @@
+createdAt: "2018-09-24T07:50:40.739Z"
+updatedAt: "2018-09-24T07:51:47.411Z"
+type: "SNIPPET_NOTE"
+folder: "efa9ce1d49f8f7a14ef1"
+title: "DateTime"
+description: "DateTime"
+snippets: [
+  {
+    name: "fechas.php"
+    mode: "PHP"
+    content: '''
+      //Fecha Hoy
+      $fechaHoyIni= new DateTime();
+      $fechaHoyFin= new DateTime();
+      
+      $fechaHoyIni->setTime(00, 00, 00);
+      $fechaHoyFin->setTime(23, 59, 59);
+      
+      $strFechaHoyIni = $fechaHoyIni->format('Y-m-d H:i:s');
+      $strFechaHoyFin = $fechaHoyFin->format('Y-m-d H:i:s');
+      
+      //Fecha Mañana
+      $fechaMayanaIni= new DateTime();
+      $fechaMayanaFin= new DateTime();
+      
+      $fechaMayanaIni->add(new DateInterval('P1D'));
+      //$fechaMayanaIni->sub(new DateInterval('P1D')); Restar un dia
+      $fechaMayanaFin->add(new DateInterval('P1D'));
+      $fechaMayanaIni->setTime(00, 00, 00);
+      $fechaMayanaFin->setTime(23, 59, 59);
+      
+      $strFechaMayanaIni = $fechaMayanaIni->format('Y-m-d H:i:s');
+      $strFechaMayanaFin = $fechaMayanaFin->format('Y-m-d H:i:s');
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false

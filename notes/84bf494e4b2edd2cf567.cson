@@ -73,7 +73,7 @@ content: '''
   
   ---
   ## Comandos informativos para Ramas
-  Ver todos los commits en una rama concreta: `git log <nombre de la rama> --not master` o `git log --walk-reflogs mybranch`
+  Ver todos los commits en una rama concreta con los ficheros modificados en cada commit: `git log <nombre de la rama> --not master --name-only` o `git log --walk-reflogs --name-only <nombre de la rama>`
   Obtener una lista de tus ramas locales: `git branch`
   Ver las ramas que se han mergeado/fusionado en master: `git branch --merged master`
   Ver las ramas que NO se han mergeado/fusionado en master: `git branch --no-merged master`
@@ -91,4 +91,4 @@ tags: []
 isStarred: false
 isTrashed: false
 createdAt: "2017-10-20T08:33:20.745Z"
-updatedAt: "2018-05-08T07:35:59.647Z"
+updatedAt: "2018-09-28T11:52:54.704Z"
