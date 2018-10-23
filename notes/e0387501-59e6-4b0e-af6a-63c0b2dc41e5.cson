@@ -1,0 +1,81 @@
+createdAt: "2018-10-23T05:46:02.546Z"
+updatedAt: "2018-10-23T06:03:52.480Z"
+type: "SNIPPET_NOTE"
+folder: "42cd38fc19c3261a8ee1"
+title: "Llamar un evento a partir de otro"
+description: "Llamar un evento a partir de otro"
+snippets: [
+  {
+    name: "ejemplo.html"
+    mode: "HTML"
+    content: '''
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+      	<meta charset="UTF-8">
+      	<title>Document</title>
+      </head>
+      <body>
+        <button id="btnShowSelect">Show filter</button>
+        
+        <select id="selectFilter">
+          <option value="A" selected>actiones</option>
+          <option value="H">horrors</option>
+        </select>
+        
+        <select id="selectMovies"></select>
+      </body>
+      </html>
+    '''
+  }
+  {
+    name: "ejemplo.js"
+    mode: "JavaScript"
+    content: '''
+      $(documnet).ready(function(){
+        
+        $('#selectFilter').hide();
+        $('#selectMovies').hide();
+        
+        $('#btnShowSelect').click(function(){
+          $('#selectFilter').show();
+          // Aqui donde llamos el change a partir del click
+          $('#selectFilter').val('A').trigger('change');
+          $('#selectMovies').show();
+        });
+        
+        $('#selectFilter').change(function(){
+          
+          var filterSelected = $(this).val();
+          
+          $.ajax({
+            url: 'http://localhost/getMovies.php',
+            method: 'POST',
+            dataType: 'json',
+            data: {'filter':filterSelected},
+            success: function(dataMovies){
+              
+                if(dataMovies != '' && dataMovies != null)
+                {
+                    $("#selectMovies option").remove();
+                    var result_lenght = dataMovies.length;
+                    for(var i = 0; i < result_lenght; i++)
+                    {
+                        $("#selectMovies").append("<option value='"+dataMovies[i]["movieId"]+"'>"+dataMovies[i]["movieName"]+"</option>");
+                    }
+                }
+              
+            },
+            error: function(){
+              
+            }
+          });
+        });
+        
+      });
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false
