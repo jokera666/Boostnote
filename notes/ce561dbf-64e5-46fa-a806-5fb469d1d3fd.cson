@@ -1,0 +1,137 @@
+createdAt: "2018-11-05T16:59:19.480Z"
+updatedAt: "2018-11-05T17:00:10.184Z"
+type: "SNIPPET_NOTE"
+folder: "42cd38fc19c3261a8ee1"
+title: "TodoList"
+description: "TodoList"
+snippets: [
+  {
+    name: "ejemplo.html"
+    mode: "HTML"
+    content: '''
+      	<div id="todoListCorreos"></div>
+      	
+      	<input type="button" id="btnAddCorreo" value="Añadir" style="float: right;">
+      	
+      	<input type="button" id="btnGuardar" value="Guardar" style="width: 100%; margin-top: 20px;">
+      
+      
+      <script>
+      	$(document).ready(function(){
+      
+      		var i = 1000;
+      		initModalCorreos();
+      		$('#btnAddCorreo').click(function(){
+      			$('#todoListCorreos').append('<div id="idCotenedorCorreo'+i+'" style="width: 100%;">'+
+      											'<button id="btnDelContenedorCorreo_'+i+'">X</button>'+
+      											'<label for="correo_'+i+'">Correo electronico: </label>'+
+      											'<input type="email" id="correo_'+i+'" style="width: 60%;" />'+
+      										'</div><br/>');
+      		i++;
+      		});
+      
+      
+      	   $(document).on("click",'[id^="btnDelContenedorCorreo_"]',function() {
+          		
+      	   		var res = $(this).attr('id').split("_");
+      	    	var idDivContenedor = res[1];
+      	    	var correoSelected = $('#correo_'+idDivContenedor+'').val();
+      
+          		var msgConfirmacion = confirm("Estas seguro que quieres eliminar el correo: "+correoSelected+"?");
+          		if(msgConfirmacion == true)
+          		{
+      	    		$.ajax({
+      		 			url: 'correosActuacionesRetiradas/ajax/delCorreo.php',
+      		 			method: 'POST',
+      		 			dataType: 'json',
+      		 			data: {idCorreo: idDivContenedor},
+      		 			success: function(response){
+      		 				if(response.status == "OK")
+      		 				{
+      		 					alert("OK: "+response.msg);
+      		 					$('#idCotenedorCorreo'+idDivContenedor+'').remove();
+      		 				}
+      		 				else
+      		 				{
+      		 					alert("KO: "+response.msg);	
+      		 				}
+      		 			},
+      		 			error: function(err){
+      		 				console.log(err);
+      		 			}
+      		 		});
+          		}
+          		else
+          		{
+          			//click Cancelar mensaje
+          		}
+      		});
+      
+      	   $('#btnGuardar').click(function(){
+      	   		var lengthTodo = $('[id^="correo_"]').length;
+      	   		var i = 0;
+      	   		var arrMails = [];
+      	   		for( i = 0; i<lengthTodo; i++)
+      	   		{
+      	   			arrMails.push($('[id^="correo_"]')[i].value);
+      	   		}
+      
+      	 		$.ajax({
+      	 			url: 'correosActuacionesRetiradas/ajax/addCorreos.php',
+      	 			method: 'POST',
+      	 			dataType: 'json',
+      	 			data: {arrMails: arrMails},
+      	 			success: function(response){
+      	 				if(response.status == "OK")
+      	 				{
+      	 					alert("OK: "+response.msg);
+      	 				}
+      	 				else
+      	 				{
+      	 					alert("KO: "+response.msg);	
+      	 				}
+      	 			},
+      	 			error: function(err){
+      	 				console.log(err);
+      	 			}
+      	 		});
+      	   });
+      
+      	
+      		function initModalCorreos()
+      		{
+      			$.ajax({
+      	 			url: 'correosActuacionesRetiradas/ajax/getCorreos.php',
+      	 			method: 'POST',
+      	 			dataType: 'json',
+      	 			beforeSend: function(){
+      	 				$('#todoListCorreos').append('<p id="loader" style="text-align: center;">Cargando...</p>');
+      	 			},
+      	 			success: function(response){
+      	 				$('#loader').remove();
+      	 				if(response.length != 0)
+      	 				{
+      		 				$.each( response, function( index, value ){
+      								$('#todoListCorreos').append('<div id="idCotenedorCorreo'+value['id']+'" style="width: 100%;">'+
+      										'<button id="btnDelContenedorCorreo_'+value['id']+'">X</button>'+
+      										'<label for="correo_'+value['id']+'">Correo electronico: </label>'+
+      										'<input type="email" id="correo_'+value['id']+'" value="'+value['email']+'" style="width: 60%;" />'+
+      									'</div><br/>');
+      						});
+      	 				}
+      
+      	 			},
+      	 			error: function(err){
+      	 				$('#loader').remove();
+      	 				console.log(err);
+      	 			}
+      	 		});
+      		}
+      	});
+      </script>
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false
