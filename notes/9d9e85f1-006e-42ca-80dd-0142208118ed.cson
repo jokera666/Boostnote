@@ -1,0 +1,91 @@
+createdAt: "2018-12-06T11:58:59.109Z"
+updatedAt: "2018-12-06T14:45:49.249Z"
+type: "MARKDOWN_NOTE"
+folder: "bb0525f9b3867a35bafe"
+title: "CS GO Commands"
+content: '''
+  # CS GO Commands
+  The map in CS GO WorkShop is: **Crosshair Generator v3**
+  ## Default Crosshair
+  
+  cl_crosshair_drawoutline "1"
+  cl_crosshair_dynamic_maxdist_splitratio "0.35"
+  cl_crosshair_dynamic_splitalpha_innermod "1"
+  cl_crosshair_dynamic_splitalpha_outermod "0.5"
+  cl_crosshair_dynamic_splitdist "7"
+  cl_crosshair_outlinethickness "1"
+  cl_crosshair_sniper_show_normal_inaccuracy "0"
+  cl_crosshair_sniper_width "2"
+  cl_crosshair_t "0"
+  cl_crosshairalpha "255.000000"
+  cl_crosshaircolor "5"
+  cl_crosshaircolor_b "0"
+  cl_crosshaircolor_g "0"
+  cl_crosshaircolor_r "255"
+  cl_crosshairdot "0"
+  cl_crosshairgap "0.000000"
+  cl_crosshairgap_useweaponvalue "0"
+  cl_crosshairscale "0"
+  cl_crosshairsize "5"
+  cl_crosshairstyle "4"
+  cl_crosshairthickness "1.000000"
+  cl_crosshairusealpha "1"
+  cl_fixedcrosshairgap "3"
+  
+  ## Crosshair Red dot
+  cl_crosshair_drawoutline "0"
+  cl_crosshair_dynamic_maxdist_splitratio "0.35"
+  cl_crosshair_dynamic_splitalpha_innermod "1"
+  cl_crosshair_dynamic_splitalpha_outermod "0.5"
+  cl_crosshair_dynamic_splitdist "7"
+  cl_crosshair_outlinethickness "1"
+  cl_crosshair_sniper_show_normal_inaccuracy "0"
+  cl_crosshair_sniper_width "2"
+  cl_crosshair_t "0"
+  cl_crosshairalpha "255"
+  cl_crosshaircolor "5"
+  cl_crosshaircolor_b "0"
+  cl_crosshaircolor_g "0"
+  cl_crosshaircolor_r "255"
+  cl_crosshairdot "0"
+  cl_crosshairgap "-6.5"
+  cl_crosshairgap_useweaponvalue "0"
+  cl_crosshairscale "0"
+  cl_crosshairsize "1.5"
+  cl_crosshairstyle "4"
+  cl_crosshairthickness "1.5"
+  cl_crosshairusealpha "1"
+  cl_fixedcrosshairgap "-2"
+  
+  ## Utilities
+  
+  Launch Optiones: `-novid -console -con_filter_enable 2 -con_filter_text Damage -con_filter_text_out Player -developer 1`
+  Evitar drops de FPS al tirar flash: `r_dynamic 0`
+  Aumentar grosor del scope: `cl_crosshair_sniper_width 2` 
+  Visualizacion de la merilla en movimiento: `zoom_sensitivity_ratio_mouse 1`
+  
+  Limpiar el mapa de tiros y sangre de las paredes `bind "h" r_cleardecals`
+  
+  Deshabilitar el audio del equipo: `bind ctrl "voice\\_enable 0; say\\_team Voice Disabled, I can't hear anyone now"` 
+  Habilitar el audio del equipo `bind Alt "voice\\_enable 1; say\\_team Voice Enabled, I hear now"`
+  
+  Centrar radar: `cl_radar_always_centered 0` 
+  
+  Alejar radar: `cl_radar_scale 0.4`
+  
+  No te bloquea la camara al morir: `cl_disablefreezecam 1`
+  
+  
+  Mostrar ping y fps: `net_graph 1`
+  
+  Mostrar los datos hacia la derecha: `net_graphpos 1`
+  
+  Reducir el tamaño de las letras: `net_graphproportionalfont 0` 
+  
+  Mover hacia arriba y abajo: `net_graphinsetbottom 90`
+  
+  Mover hacia la derecha: `net_graphinsetright -200` 
+'''
+tags: []
+isStarred: false
+isTrashed: false

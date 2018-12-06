@@ -34,6 +34,11 @@
       "key": "a0e1aeb419d074b1ac51",
       "color": "#3FD941",
       "name": "SQL"
+    },
+    {
+      "key": "bb0525f9b3867a35bafe",
+      "color": "#E8D252",
+      "name": "Game Commands"
     }
   ],
   "version": "1.0"
