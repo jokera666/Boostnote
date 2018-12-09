@@ -1,5 +1,5 @@
 createdAt: "2018-12-06T11:58:59.109Z"
-updatedAt: "2018-12-06T14:45:49.249Z"
+updatedAt: "2018-12-09T16:54:50.524Z"
 type: "MARKDOWN_NOTE"
 folder: "bb0525f9b3867a35bafe"
 title: "CS GO Commands"
@@ -64,10 +64,10 @@ content: '''
   Aumentar grosor del scope: `cl_crosshair_sniper_width 2` 
   Visualizacion de la merilla en movimiento: `zoom_sensitivity_ratio_mouse 1`
   
-  Limpiar el mapa de tiros y sangre de las paredes `bind "h" r_cleardecals`
+  Limpiar el mapa de tiros y sangre de las paredes `bind n r_cleardecals`
   
-  Deshabilitar el audio del equipo: `bind ctrl "voice\\_enable 0; say\\_team Voice Disabled, I can't hear anyone now"` 
-  Habilitar el audio del equipo `bind Alt "voice\\_enable 1; say\\_team Voice Enabled, I hear now"`
+  Deshabilitar el audio del equipo: `bind h "voice_enable 0; say_team Voice Disabled, I can't hear anyone now"` 
+  Habilitar el audio del equipo `bind j "voice_enable 1; say_team Voice Enabled, I hear now"`
   
   Centrar radar: `cl_radar_always_centered 0` 
   
