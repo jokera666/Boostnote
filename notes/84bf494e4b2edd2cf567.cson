@@ -40,6 +40,7 @@ content: '''
   Seleccionar un fichero en concreto para añadir en el commit: `git add <nombre de fichero>`
   Para eliminar un fichero que no queremos que aparezca en el commit: `git checkout <nombre de fichero>`
   Para eliminar los ficheros (f) y directorios (d) untracked: `git clean -fd`
+  Seleccionar los ficheros que se requieren eliminar: `git clean -i`
   Para comentar los ficheros y añadir una descripcion a subir en el repositorio: `git commit -m <titulo del commit> -m <descripcion del commit>`
   Añade todos los ficheros a commitear automaticame y describir el commit: `git commit -am <titulo del commit> -m <descripcion del commit>`
   Para subir el commit al repositorio: `git push`
@@ -92,4 +93,4 @@ tags: []
 isStarred: false
 isTrashed: false
 createdAt: "2017-10-20T08:33:20.745Z"
-updatedAt: "2018-12-04T15:26:05.484Z"
+updatedAt: "2018-12-10T09:44:45.872Z"

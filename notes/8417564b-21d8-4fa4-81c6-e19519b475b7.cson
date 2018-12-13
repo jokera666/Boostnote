@@ -1,0 +1,16 @@
+createdAt: "2018-12-12T07:50:41.703Z"
+updatedAt: "2018-12-12T07:53:48.000Z"
+type: "MARKDOWN_NOTE"
+folder: "a0e1aeb419d074b1ac51"
+title: "Añadir a GETDATE() una hora estatica"
+content: '''
+  Añadir a GETDATE() una hora estatica
+  
+  ```SQL
+  select CONVERT(datetime2, CONCAT(CONVERT(date, GETDATE()),' 00:00'));
+  select CONVERT(datetime2, CONCAT(CONVERT(date, GETDATE()),' 23:59'));
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false

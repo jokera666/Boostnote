@@ -1,10 +1,11 @@
 createdAt: "2018-09-18T11:04:26.051Z"
-updatedAt: "2018-09-18T11:18:08.735Z"
+updatedAt: "2018-12-12T07:51:49.409Z"
 type: "MARKDOWN_NOTE"
 folder: "a0e1aeb419d074b1ac51"
 title: "Generar INSERT a partir de un select"
 content: '''
   Generar INSERT a partir de un select
+  
   ```SQL
   select 'INSERT INTO TECNICO_ PROVINCIA values(Id=9999, name=\'''+ TITULO +\''')' from PROVINCIAS
   ```

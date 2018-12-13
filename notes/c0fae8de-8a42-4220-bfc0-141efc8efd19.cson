@@ -1,0 +1,27 @@
+createdAt: "2018-12-12T12:38:13.498Z"
+updatedAt: "2018-12-12T12:38:34.844Z"
+type: "MARKDOWN_NOTE"
+folder: "a0e1aeb419d074b1ac51"
+title: "Comprobacion de un campo si esta en una o mas tablas"
+content: '''
+  Comprobacion de un campo si esta en una o mas tablas
+  
+  ```SQL
+      $sql = "SELECT DISTINCT IDPROVISION
+              FROM
+              (
+                  SELECT IDPROVISION
+                  FROM PDF_PETICIONES
+                  WHERE IDPROVISION = '".$id_peticion."'
+  
+                  UNION
+  
+                  SELECT IDPROVISION
+                  FROM FOTOS_PETICIONES
+                  WHERE IDPROVISION = '".$id_peticion."'
+              ) AUX;";
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false
