@@ -1,0 +1,40 @@
+createdAt: "2019-03-29T08:58:25.471Z"
+updatedAt: "2019-03-29T09:02:20.488Z"
+type: "SNIPPET_NOTE"
+folder: "42cd38fc19c3261a8ee1"
+title: "Eventos con radio buttons"
+tags: []
+description: "Eventos con radio buttons"
+snippets: [
+  {
+    linesHighlighted: []
+    name: "ejemplo.html"
+    mode: "HTML"
+    content: '''
+      <div class="radio">
+        <label><input type="radio" name="btnRadio" value="default" checked>Indicador seleccionado</label>
+      </div>
+      
+      <div class="radio">
+        <label><input type="radio" name="btnRadio" value="selectIndicadores">Indicador seleccionado comparado con: </label>
+      </div>
+    '''
+  }
+  {
+    name: "ejemplo.js"
+    mode: "JavaScript"
+    content: '''
+      $('input[type=radio][name=btnRadio]').change(function() {
+          if (this.value == 'default'){
+              $("#selectIndicadores").prop('disabled', true);
+          }
+          else if (this.value == 'selectIndicadores') {
+              $("#selectIndicadores").prop('disabled', false);
+          }
+      });
+    '''
+    linesHighlighted: []
+  }
+]
+isStarred: false
+isTrashed: false

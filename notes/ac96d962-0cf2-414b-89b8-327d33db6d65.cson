@@ -1,0 +1,38 @@
+createdAt: "2019-03-29T09:03:38.531Z"
+updatedAt: "2019-03-29T09:04:50.423Z"
+type: "SNIPPET_NOTE"
+folder: "42cd38fc19c3261a8ee1"
+title: "Remarcar una fila de una tabla"
+tags: []
+description: "Remarcar una fila de una tabla"
+snippets: [
+  {
+    linesHighlighted: []
+    name: "ejemplo.js"
+    mode: "JavaScript"
+    content: '''
+      //Remarcar la fila seleccionada en la tabla de indicadores
+      $(document).on("click", "#indicadoresTable tbody tr", function () {
+          var selected = $(this).hasClass("highlight");
+          $("#indicadoresTable tbody tr").removeClass("highlight");
+          if(!selected)
+          {
+              $(this).addClass("highlight");   
+          }
+      });
+    '''
+  }
+  {
+    name: "ejemplo.css"
+    mode: "CSS"
+    content: '''
+      .highlight > td {
+          background-color: #272D51 !important;
+          color: white !important;
+      }
+    '''
+    linesHighlighted: []
+  }
+]
+isStarred: false
+isTrashed: false

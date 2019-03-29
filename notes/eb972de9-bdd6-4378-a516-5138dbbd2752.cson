@@ -1,0 +1,17 @@
+createdAt: "2019-03-29T09:11:33.267Z"
+updatedAt: "2019-03-29T09:12:09.868Z"
+type: "SNIPPET_NOTE"
+folder: "42cd38fc19c3261a8ee1"
+title: "Obtener el valor de columna 1 fila 1 de una tabla"
+tags: []
+description: "Obtener el valor de columna 1 fila 1 de una tabla"
+snippets: [
+  {
+    linesHighlighted: []
+    name: "ejemplo.js"
+    mode: "JavaScript"
+    content: "var firstRow =  $('#objetivos_estrategicosTable').find('tr').children('td:first').text(); "
+  }
+]
+isStarred: false
+isTrashed: false
