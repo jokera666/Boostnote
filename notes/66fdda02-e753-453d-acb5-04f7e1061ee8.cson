@@ -1,0 +1,32 @@
+createdAt: "2019-10-04T07:38:30.831Z"
+updatedAt: "2019-10-04T07:38:53.288Z"
+type: "SNIPPET_NOTE"
+folder: "42cd38fc19c3261a8ee1"
+title: "Eliminar ascentos de una cadena de texto"
+tags: []
+description: '''
+  Eliminar ascentos de una cadena de texto
+  
+'''
+snippets: [
+  {
+    linesHighlighted: []
+    name: "ejemplo.js"
+    mode: "JavaScript"
+    content: '''
+      function eliminarAcentos(cadena)
+      {
+          var chars={
+              "á":"a", "é":"e", "í":"i", "ó":"o", "ú":"u",
+              "à":"a", "è":"e", "ì":"i", "ò":"o", "ù":"u", "ñ":"n",
+              "Á":"A", "É":"E", "Í":"I", "Ó":"O", "Ú":"U",
+              "À":"A", "È":"E", "Ì":"I", "Ò":"O", "Ù":"U", "Ñ":"N"}
+          var expr=/[áàéèíìóòúùñ]/ig;
+          var res=cadena.replace(expr,function(e){return chars[e]});
+          return res;
+      }
+    '''
+  }
+]
+isStarred: false
+isTrashed: false

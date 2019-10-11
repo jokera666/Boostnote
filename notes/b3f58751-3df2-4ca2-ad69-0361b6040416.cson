@@ -1,0 +1,33 @@
+createdAt: "2019-06-27T07:40:50.285Z"
+updatedAt: "2019-06-27T07:44:41.514Z"
+type: "SNIPPET_NOTE"
+folder: "42cd38fc19c3261a8ee1"
+title: "Añadir un elemento en un array y si existe sacarlo"
+tags: []
+description: "Añadir un elemento en un array y si existe sacarlo"
+snippets: [
+  {
+    linesHighlighted: []
+    name: "ejemplo.js"
+    mode: "JavaScript"
+    content: '''
+      $("select#nombres").change(function(){
+        var valueSelected = $(this).val();
+        var arrayNombre = [];
+        
+        //si no existe añadir el elemento
+        if($.inArray(valueSelected, arrayNombre) === -1)
+        {
+            arrayNombre.push(valueSelected);
+        }
+        else
+        {
+            //a partir del indice encontrado elimina 1 posicion
+            arrayNombre.splice( arrayNombre.indexOf(valueSelected), 1 );
+        } 
+      });
+    '''
+  }
+]
+isStarred: false
+isTrashed: false
