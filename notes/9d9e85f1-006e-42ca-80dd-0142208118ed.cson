@@ -1,5 +1,5 @@
 createdAt: "2018-12-06T11:58:59.109Z"
-updatedAt: "2018-12-09T16:54:50.524Z"
+updatedAt: "2019-10-31T12:57:37.227Z"
 type: "MARKDOWN_NOTE"
 folder: "bb0525f9b3867a35bafe"
 title: "CS GO Commands"
@@ -59,7 +59,7 @@ content: '''
   
   ## Utilities
   
-  Launch Optiones: `-novid -console -con_filter_enable 2 -con_filter_text Damage -con_filter_text_out Player -developer 1`
+  Launch Optiones: `-novid -console -nosplash -freq 144 -refresh 144 -+cl_updaterate 128 +cl_cmdrate 128 +cl_interp 0 +cl_interp_ratio 1 +rate 128000 -high -con_filter_enable 2 -con_filter_text Damage -con_filter_text_out Player -developer 1 +r_dynamic 0 -high  -d3d9ex`
   Evitar drops de FPS al tirar flash: `r_dynamic 0`
   Aumentar grosor del scope: `cl_crosshair_sniper_width 2` 
   Visualizacion de la merilla en movimiento: `zoom_sensitivity_ratio_mouse 1`
@@ -89,3 +89,4 @@ content: '''
 tags: []
 isStarred: false
 isTrashed: false
+linesHighlighted: []
