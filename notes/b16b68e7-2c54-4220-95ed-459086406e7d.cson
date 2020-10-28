@@ -1,0 +1,16 @@
+createdAt: "2020-01-19T15:33:17.167Z"
+updatedAt: "2020-01-19T15:42:15.935Z"
+type: "MARKDOWN_NOTE"
+folder: "bb6017d2ebfd48ef3475"
+title: "Cambiar el color de la etiqueta \\"
+tags: []
+content: '''
+  ## Cambiar el color de la etiqueta \\<code\\>
+  En algunas versiones el color de la etiqueta code no se ve bien. Por lo tanto hay tocar el fichero C:\\Users\\TheJoker\\AppData\\Local\\boost\\app-0.14.0\\resources\\app\\compiled\\main.js y cambiar el color de la propiedad 
+  ```css
+  background-color: rgba(0,0,0,0.04);
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

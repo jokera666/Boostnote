@@ -1,6 +1,6 @@
 type: "MARKDOWN_NOTE"
 folder: "c933a741eb80cf546f4d"
-title: "&x2623; -=[ Comandos Git ]=- &#x2623;"
+title: "&#x2623; -=[ Comandos Git ]=- &#x2623;"
 content: '''
   # &#x2623; -=[ Comandos Git ]=- &#x2623;
   
@@ -88,9 +88,21 @@ content: '''
   Almacenar cambios a sucio: `git stash`
   Recuperar cambios del stash: `git stash apply`
   Borrar el stash una vez terminado el trabajo en la rama: `git stash drop`
+  
+  ## Comandos utiles
+  ---
+  Si una carpeta o fichero se añade despues en el gitignore hay que borrarla de la siguiente manera: `git rm -r --cached node_modules`
+  
+  ## Tags 
+  ---
+  Listar todos los tags: `git tag`
+  Obtener el ultimo tag: `git describe`
+  Crear un tag: `git tag -a v1.0.0 -m "First tag"`
+  Subir tags: `git push --tags`
 '''
 tags: []
 isStarred: false
 isTrashed: false
 createdAt: "2017-10-20T08:33:20.745Z"
-updatedAt: "2018-12-10T09:44:45.872Z"
+updatedAt: "2020-10-28T23:12:09.365Z"
+linesHighlighted: []

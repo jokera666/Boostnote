@@ -39,6 +39,11 @@
       "key": "bb0525f9b3867a35bafe",
       "color": "#E8D252",
       "name": "Game Commands"
+    },
+    {
+      "key": "bb6017d2ebfd48ef3475",
+      "color": "#FF8E00",
+      "name": "Boostnote"
     }
   ],
   "version": "1.0"
