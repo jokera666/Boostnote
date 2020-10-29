@@ -1,0 +1,36 @@
+createdAt: "2020-10-29T07:36:03.425Z"
+updatedAt: "2020-10-29T07:41:17.331Z"
+type: "MARKDOWN_NOTE"
+folder: "ab5eb0282a9d4dac9439"
+title: "BackUp exptenciones Visual stuido code"
+tags: []
+content: '''
+  # BackUp exptenciones Visual stuido code
+  ---
+  Obtener la lista de la extenciones instaladas en tu VS Code: `code --list-extensions | xargs -L 1 echo code --install-extension`
+  
+  El resultado obtenido seran los comandos para instalar la extenciones en un VS Code limpio:
+  
+  ```
+  code --install-extension aaron-bond.better-comments
+  code --install-extension ChakrounAnas.turbo-console-log
+  code --install-extension CoenraadS.bracket-pair-colorizer-2
+  code --install-extension donjayamanne.githistory
+  code --install-extension Equinusocio.vsc-community-material-theme
+  code --install-extension Equinusocio.vsc-material-theme
+  code --install-extension equinusocio.vsc-material-theme-icons
+  code --install-extension esbenp.prettier-vscode
+  code --install-extension formulahendry.auto-rename-tag
+  code --install-extension johnpapa.Angular2
+  code --install-extension naumovs.color-highlight
+  code --install-extension Nur.just-black
+  code --install-extension PKief.material-icon-theme
+  code --install-extension pranaygp.vscode-css-peek
+  code --install-extension ritwickdey.LiveServer
+  code --install-extension WallabyJs.quokka-vscode
+  code --install-extension xabikos.JavaScriptSnippets
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false
