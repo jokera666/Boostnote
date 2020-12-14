@@ -43,6 +43,7 @@ content: '''
   Seleccionar los ficheros que se requieren eliminar: `git clean -i`
   Para comentar los ficheros y añadir una descripcion a subir en el repositorio: `git commit -m <titulo del commit> -m <descripcion del commit>`
   Añade todos los ficheros a commitear automaticame y describir el commit: `git commit -am <titulo del commit> -m <descripcion del commit>`
+  Cambiar el mensaje de un commit: `git commit --amend -m "an updated commit message" `
   Para subir el commit al repositorio: `git push`
   Para bajar los cambios (actualizar el repositorio) que se han echo en el repositorio: `git pull`
   Crear una rama y moverte en ella: `git checkout -b <nombre de la rama>`
@@ -104,5 +105,5 @@ tags: []
 isStarred: false
 isTrashed: false
 createdAt: "2017-10-20T08:33:20.745Z"
-updatedAt: "2020-10-28T23:12:09.365Z"
+updatedAt: "2020-11-10T07:52:21.765Z"
 linesHighlighted: []
