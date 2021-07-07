@@ -1,0 +1,54 @@
+createdAt: "2021-07-07T06:48:00.428Z"
+updatedAt: "2021-07-07T06:51:45.081Z"
+type: "MARKDOWN_NOTE"
+folder: "c8b8d1fbd75a9583fdb2"
+title: "Buscar las 5 ciudades mas repetidas"
+tags: []
+content: '''
+  ### Buscar las 5 ciudades mas repetidas
+  ```javascript
+  const ciudades = [
+  	"Madrid",
+  	"Madrid",
+  	"Barcelona",
+  	"Alicante",
+  	"Murcia",
+  	"Orihuela",
+  	"Cox",
+  	"Callosa del segura",
+  	"Granja",
+  	"Madrid",
+  	"Orihuela",
+  	"Desamparados",
+  	"Barcelona",
+  	"Madrid",
+  	"Granja",
+  	"Granja"
+  ];
+  
+  const numOrder = 5;
+  
+  const buscarContar = ( ciudades, numOrder ) => {
+  	
+  const cities = {}; 
+  
+  ciudades.forEach( city => {
+    cities[city]  = !cities[city] ? 1 : cities[city] += 1;
+  })
+  
+  // object to array
+  return Object.keys(cities).map( city => {
+    return {nombre: city, times: cities[city]}
+  }).sort((a, b) => {
+    return b.times - a.times;
+  }).slice(0, numOrder)
+  .map(city => city.nombre)
+  }
+  
+  
+  console.log(buscarContar(ciudades, numOrder));
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

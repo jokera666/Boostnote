@@ -49,6 +49,11 @@
       "key": "ab5eb0282a9d4dac9439",
       "color": "#2BA5F7",
       "name": "VS Code"
+    },
+    {
+      "key": "c8b8d1fbd75a9583fdb2",
+      "color": "#FF8E00",
+      "name": "Pruebas Tecnicas"
     }
   ],
   "version": "1.0"

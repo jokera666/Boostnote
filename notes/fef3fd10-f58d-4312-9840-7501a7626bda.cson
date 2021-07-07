@@ -1,0 +1,31 @@
+createdAt: "2021-07-07T06:54:15.518Z"
+updatedAt: "2021-07-07T06:56:53.418Z"
+type: "MARKDOWN_NOTE"
+folder: "c8b8d1fbd75a9583fdb2"
+title: "Buscar las palabras repetidas en una cadena de texto"
+tags: []
+content: '''
+  ## Buscar las palabras repetidas en una cadena de texto
+  ```javascript
+  const texto = "ima edno vreme v bylgariq. I pak shte q ima"; 
+  const arrTexto = texto.split(" ");
+  const objReply = {};
+  
+  console.log(arrTexto);
+  
+  arrTexto.forEach( elem => {
+      objReply[elem] = !objReply[elem] ? 1 : objReply[elem] += 1
+  });
+  
+  console.log(objReply);
+  
+  const arrSolve = Object.keys(objReply).map( elem => {
+      return { word: elem, reply: objReply[elem] }
+  })
+  
+  console.log(arrSolve);
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false
